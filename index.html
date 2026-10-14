@@ -354,7 +354,7 @@
             width: 15%;
         }
 
-        /* Sezione Link Foto Esterni (TripAdvisor & Google) */
+        /* Sezione Link Foto ed Eventuali Recensioni */
         .photo-links-container {
             display: flex;
             justify-content: center;
@@ -382,7 +382,7 @@
 
         .photo-link-card:hover {
             transform: translateY(-5px);
-            box-shadow: c 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-color: var(--accent-color);
         }
 
@@ -395,6 +395,11 @@
             font-size: 1.4rem;
             font-weight: 600;
             font-family: var(--font-normal);
+        }
+
+        /* Sezione Recensioni */
+        .reviews-section {
+            background-color: #f7f3ec;
         }
 
         /* Posizione & Contatti */
@@ -547,6 +552,7 @@
                 <li><a href="#locale">Il Locale</a></li>
                 <li><a href="#menu">Menù</a></li>
                 <li><a href="#foto">Foto</a></li>
+                <li><a href="#recensioni">Recensioni</a></li>
                 <li><a href="#contatti">Posizione e Contatti</a></li>
             </ul>
         </nav>
@@ -810,20 +816,38 @@
         </div>
     </section>
 
-    <!-- Sezione Foto (Link esterni TripAdvisor e Google Immagini) -->
+    <!-- Sezione Foto (Link aggiornati con icone) -->
     <section id="foto">
         <div class="section-title">
             <h2>Scatti dal Locale</h2>
             <p>Guarda le foto dei piatti e dell'atmosfera caricate dai clienti</p>
         </div>
         <div class="photo-links-container">
-            <a href="https://www.tripadvisor.it/Restaurant_Review-g187806-d1180293-Reviews-Osteria_Broccaindosso-Bologna_Emilia_Romagna.html" target="_blank" class="photo-link-card">
+            <a href="https://www.tripadvisor.it/Restaurant_Review-g187801-d1817553-Reviews-Osteria_Broccaindosso-Bologna_Province_of_Bologna_Emilia_Romagna.html" target="_blank" class="photo-link-card">
                 <i class="fab fa-tripadvisor"></i>
                 <span>Foto su TripAdvisor</span>
             </a>
-            <a href="https://www.google.com/search?q=Osteria+Broccaindosso+Bologna+immagini&tbm=isch" target="_blank" class="photo-link-card">
+            <a href="https://www.google.com/search?sca_esv=d11bf3d68244a04c&sxsrf=APpeQnvWl0D8dKLQp3uCq1gEznO5UZiJvw:1792020391395&udm=2&fbs=ABfTbFWgwlc2MNw7uknLQP9cFo05YtUSpNgn2klEDQSYENClcwAmvzByCsiwlphIPIJX4izqaqVrlbkF8jiCn9a8mLsRyMr6G-B6brtdLq3I5hnw2DOFTF_bVSIWpGh-I_xoJaDGfkFrKYGHAGPiJu6j5-WBzx6S-vVJQShhTKO06tbqdJTMAG-d6LA6f0BqJnUcBWnY5fOC&q=osteria+broccaindosso&sa=X&ved=2ahUKEwiHxe-W1LqXAxVfgP0HHUU_NQ0QtKgLegQIFxAB&cshid=1792020400546006&biw=1536&bih=695&dpr=1.25" target="_blank" class="photo-link-card">
                 <i class="fas fa-images"></i>
                 <span>Google Immagini</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sezione Lasciaci una recensione -->
+    <section id="recensioni" class="reviews-section">
+        <div class="section-title">
+            <h2>Lasciaci una Recensione</h2>
+            <p>La tua opinione è preziosa per noi e per gli altri ospiti</p>
+        </div>
+        <div class="photo-links-container">
+            <a href="https://www.tripadvisor.it/UserReviewEdit-g187801-d1817553-Osteria_Broccaindosso-Bologna_Province_of_Bologna_Emilia_Romagna.html" target="_blank" class="photo-link-card">
+                <i class="fab fa-tripadvisor"></i>
+                <span>Recensisci su TripAdvisor</span>
+            </a>
+            <a href="https://www.google.com/search?sca_esv=d11bf3d68244a04c&sxsrf=APpeQnvWl0D8dKLQp3uCq1gEznO5UZiJvw:1792020391395&udm=2&fbs=ABfTbFWgwlc2MNw7uknLQP9cFo05YtUSpNgn2klEDQSYENClcwAmvzByCsiwlphIPIJX4izqaqVrlbkF8jiCn9a8mLsRyMr6G-B6brtdLq3I5hnw2DOFTF_bVSIWpGh-I_xoJaDGfkFrKYGHAGPiJu6j5-WBzx6S-vVJQShhTKO06tbqdJTMAG-d6LA6f0BqJnUcBWnY5fOC&q=osteria+broccaindosso&sa=X&ved=2ahUKEwiHxe-W1LqXAxVfgP0HHUU_NQ0QtKgLegQIFxAB&cshid=1792020400546006&biw=1536&bih=695&dpr=1.25" target="_blank" class="photo-link-card">
+                <i class="fab fa-google"></i>
+                <span>Recensisci su Google</span>
             </a>
         </div>
     </section>
