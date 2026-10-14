@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Osteria Broccaindosso | Bologna</title>
-    <!-- Google Fonts: Inclusione di Caveat per imitare la scrittura a mano del menu e Playfair Display -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome per le icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,7 +17,7 @@
             --bg-light: #fdfbf7;
             --text-dark: #2b2b2b;
             --transition: all 0.3s ease;
-            --font-handwritten: 'Caveat', cursive; /* Font stile menu a mano */
+            --font-handwritten: 'Caveat', cursive;
         }
 
         * {
@@ -41,7 +41,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Applicazione del font stile menu a mano alle intestazioni e ai titoli dei piatti */
         .menu-category h3, .menu-item-title, .section-title h2, .hero h1 {
             font-family: var(--font-handwritten);
         }
@@ -237,6 +236,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .menu-category {
@@ -274,7 +274,15 @@
             font-family: var(--font-handwritten);
         }
 
-        /* Stile allineato per la lista dei Vini */
+        /* Sezioni Vini Full-Width (una sotto l'altra) */
+        .wine-full-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
         .wine-table {
             width: 100%;
             border-collapse: collapse;
@@ -310,7 +318,7 @@
             font-size: 1.2rem;
             font-family: var(--font-handwritten);
             white-space: nowrap;
-            width: 22%;
+            width: 15%;
         }
 
         /* Galleria Foto */
@@ -585,136 +593,153 @@
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Brandy Villa Zarri</div></div><div class="menu-item-price">€ 8</div></div>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Amari</div></div><div class="menu-item-price">€ 5</div></div>
             </div>
+        </div>
 
-            <!-- Categoria Vini Rossi -->
-            <div class="menu-category" style="grid-column: span 1;">
-                <h3><i class="fas fa-wine-glass-alt"></i> Vini Rossi</h3>
-                <table class="wine-table">
-                    <thead>
-                        <tr>
-                            <th>Vino</th>
-                            <th style="text-align:right;">0.75L</th>
-                            <th style="text-align:right;">0.50L</th>
-                            <th style="text-align:right;">Calice</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="wine-name">Cabernet Sauvignon (cantina De Franceschi)</td>
-                            <td class="wine-price-col">€ 15</td>
-                            <td class="wine-price-col">€ 8</td>
-                            <td class="wine-price-col">€ 4</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Merlot (cantina Isola)</td>
-                            <td class="wine-price-col">€ 18</td>
-                            <td class="wine-price-col">€ 13</td>
-                            <td class="wine-price-col">€ 6</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Sangiovese Superiore (cantina Nespoli)</td>
-                            <td class="wine-price-col">€ 19</td>
-                            <td class="wine-price-col">€ 13</td>
-                            <td class="wine-price-col">€ 6</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Lambrusco (cantina Garuti)</td>
-                            <td class="wine-price-col">€ 16</td>
-                            <td class="wine-price-col">€ 12</td>
-                            <td class="wine-price-col">€ 5</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Valpolicella Ripasso (az. agr. Veronesi Beatrice)</td>
-                            <td class="wine-price-col">€ 50</td>
-                            <td class="wine-price-col">€ 20</td>
-                            <td class="wine-price-col">€ 8</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Sangiovese Santodeno Appassimento</td>
-                            <td class="wine-price-col">€ 24</td>
-                            <td class="wine-price-col">€ 16</td>
-                            <td class="wine-price-col">€ 7</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Montepulciano (cantina Granducato)</td>
-                            <td class="wine-price-col">€ 30</td>
-                            <td class="wine-price-col">€ 20</td>
-                            <td class="wine-price-col">€ 7</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Rosso Riserva Bologna (cantina Bonfiglio)</td>
-                            <td class="wine-price-col">€ 35</td>
-                            <td class="wine-price-col">€ 24</td>
-                            <td class="wine-price-col">€ 9</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Controluce (cantina Manaresi)</td>
-                            <td class="wine-price-col">€ 32</td>
-                            <td class="wine-price-col">€ 22</td>
-                            <td class="wine-price-col">€ 8</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Barbera (cantina Manaresi)</td>
-                            <td class="wine-price-col">€ 28</td>
-                            <td class="wine-price-col">€ 20</td>
-                            <td class="wine-price-col">€ 7</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- SEZIONE VINI ROSSI (Full-width) -->
+        <div class="wine-full-section">
+            <h3><i class="fas fa-wine-glass-alt"></i> Vini Rossi</h3>
+            <table class="wine-table">
+                <thead>
+                    <tr>
+                        <th>Vino</th>
+                        <th style="text-align:right;">0.75L</th>
+                        <th style="text-align:right;">0.50L</th>
+                        <th style="text-align:right;">Calice</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="wine-name">Cabernet Sauvignon (cantina De Franceschi)</td>
+                        <td class="wine-price-col">€ 15</td>
+                        <td class="wine-price-col">€ 8</td>
+                        <td class="wine-price-col">€ 4</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Merlot (cantina Isola)</td>
+                        <td class="wine-price-col">€ 18</td>
+                        <td class="wine-price-col">€ 13</td>
+                        <td class="wine-price-col">€ 6</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Sangiovese Superiore (cantina Nespoli)</td>
+                        <td class="wine-price-col">€ 19</td>
+                        <td class="wine-price-col">€ 13</td>
+                        <td class="wine-price-col">€ 6</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Lambrusco (cantina Garuti)</td>
+                        <td class="wine-price-col">€ 16</td>
+                        <td class="wine-price-col">€ 12</td>
+                        <td class="wine-price-col">€ 5</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Valpolicella Ripasso (az. agr. Veronesi Beatrice)</td>
+                        <td class="wine-price-col">€ 50</td>
+                        <td class="wine-price-col">€ 20</td>
+                        <td class="wine-price-col">€ 8</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Sangiovese Santodeno Appassimento</td>
+                        <td class="wine-price-col">€ 24</td>
+                        <td class="wine-price-col">€ 16</td>
+                        <td class="wine-price-col">€ 7</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Montepulciano (cantina Granducato)</td>
+                        <td class="wine-price-col">€ 30</td>
+                        <td class="wine-price-col">€ 20</td>
+                        <td class="wine-price-col">€ 7</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Rosso Riserva Bologna (cantina Bonfiglio)</td>
+                        <td class="wine-price-col">€ 35</td>
+                        <td class="wine-price-col">€ 24</td>
+                        <td class="wine-price-col">€ 9</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Controluce (cantina Manaresi)</td>
+                        <td class="wine-price-col">€ 32</td>
+                        <td class="wine-price-col">€ 22</td>
+                        <td class="wine-price-col">€ 8</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Barbera (cantina Manaresi)</td>
+                        <td class="wine-price-col">€ 28</td>
+                        <td class="wine-price-col">€ 20</td>
+                        <td class="wine-price-col">€ 7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <!-- Categoria Vini Bianchi e Passiti -->
-            <div class="menu-category">
-                <h3><i class="fas fa-wine-bottle"></i> Vini Bianchi & Dolci</h3>
-                <table class="wine-table">
-                    <thead>
-                        <tr>
-                            <th>Vino</th>
-                            <th style="text-align:right;">0.75L</th>
-                            <th style="text-align:right;">0.50L</th>
-                            <th style="text-align:right;">Calice</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="wine-name">Bianco fermo della casa (cantina Isola)</td>
-                            <td class="wine-price-col">€ 13</td>
-                            <td class="wine-price-col">€ 8</td>
-                            <td class="wine-price-col">€ 4</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Bianco frizzante della casa (cantina Isola)</td>
-                            <td class="wine-price-col">€ 13</td>
-                            <td class="wine-price-col">€ 8</td>
-                            <td class="wine-price-col">€ 4</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Prosecco Valdobbiadene Superiore (cantina Bellussi)</td>
-                            <td class="wine-price-col">€ 24</td>
-                            <td class="wine-price-col">€ 16</td>
-                            <td class="wine-price-col">€ 7</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Bianco Bologna (cantina Manaresi)</td>
-                            <td class="wine-price-col">€ 22</td>
-                            <td class="wine-price-col">€ 15</td>
-                            <td class="wine-price-col">€ 6</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Friulano (cantina Raccaro o Toros) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo bottiglia 0.75)</small></td>
-                            <td class="wine-price-col">€ 50</td>
-                            <td class="wine-price-col">/</td>
-                            <td class="wine-price-col">/</td>
-                        </tr>
-                        <tr>
-                            <td class="wine-name">Albana Passito (cantina dell'Emilia Romagna) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo 0.50 e calice)</small></td>
-                            <td class="wine-price-col">/</td>
-                            <td class="wine-price-col">€ 30</td>
-                            <td class="wine-price-col">€ 8</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- SEZIONE VINI BIANCHI (Full-width) -->
+        <div class="wine-full-section">
+            <h3><i class="fas fa-wine-bottle"></i> Vini Bianchi</h3>
+            <table class="wine-table">
+                <thead>
+                    <tr>
+                        <th>Vino</th>
+                        <th style="text-align:right;">0.75L</th>
+                        <th style="text-align:right;">0.50L</th>
+                        <th style="text-align:right;">Calice</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="wine-name">Bianco fermo della casa (cantina Isola)</td>
+                        <td class="wine-price-col">€ 13</td>
+                        <td class="wine-price-col">€ 8</td>
+                        <td class="wine-price-col">€ 4</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Bianco frizzante della casa (cantina Isola)</td>
+                        <td class="wine-price-col">€ 13</td>
+                        <td class="wine-price-col">€ 8</td>
+                        <td class="wine-price-col">€ 4</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Prosecco Valdobbiadene Superiore (cantina Bellussi)</td>
+                        <td class="wine-price-col">€ 24</td>
+                        <td class="wine-price-col">€ 16</td>
+                        <td class="wine-price-col">€ 7</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Bianco Bologna (cantina Manaresi)</td>
+                        <td class="wine-price-col">€ 22</td>
+                        <td class="wine-price-col">€ 15</td>
+                        <td class="wine-price-col">€ 6</td>
+                    </tr>
+                    <tr>
+                        <td class="wine-name">Friulano (cantina Raccaro o Toros) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo bottiglia 0.75)</small></td>
+                        <td class="wine-price-col">€ 50</td>
+                        <td class="wine-price-col">/</td>
+                        <td class="wine-price-col">/</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SEZIONE VINO PER DOLCI (Full-width) -->
+        <div class="wine-full-section">
+            <h3><i class="fas fa-glass-cheers"></i> Vino per Dolci</h3>
+            <table class="wine-table">
+                <thead>
+                    <tr>
+                        <th>Vino</th>
+                        <th style="text-align:right;">0.75L</th>
+                        <th style="text-align:right;">0.50L</th>
+                        <th style="text-align:right;">Calice</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="wine-name">Albana Passito (cantina dell'Emilia Romagna) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo 0.50 e calice)</small></td>
+                        <td class="wine-price-col">/</td>
+                        <td class="wine-price-col">€ 30</td>
+                        <td class="wine-price-col">€ 8</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
