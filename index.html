@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Osteria Broccaindosso | Bologna</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome per le icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -19,6 +19,7 @@
             --transition: all 0.3s ease;
             --font-handwritten: 'Caveat', cursive;
             --font-normal: 'Roboto', sans-serif;
+            --font-logo: 'Playfair Display', serif;
         }
 
         * {
@@ -121,18 +122,19 @@
         }
 
         .logo {
-            font-weight: 500;
+            font-weight: 600;
+            font-style: italic;
             color: #fff;
             text-decoration: none;
             letter-spacing: 0.5px;
-            font-family: var(--font-normal); /* Font più minimale */
-            font-size: 1.3rem;
-            text-transform: uppercase;
+            font-family: var(--font-logo); /* Font più ordinato ma allegro */
+            font-size: 1.5rem;
         }
 
         .logo span {
             color: var(--accent-color);
             font-weight: 700;
+            font-style: normal;
         }
 
         nav ul {
@@ -513,7 +515,7 @@
 
     <!-- Banner Prenotazione Immediata in Cima -->
     <div class="top-booking-bar">
-        <span><i class="fas fa-phone-alt"></i> Per prenotare chiama subito: <a href="tel:+39051234153">+39 051 234153</a></span>
+        <span><i class="fas fa-phone-alt"></i> &nbsp; per prenotare chiama: <a href="tel:+39051234153">+39 051 234153</a></span>
     </div>
 
     <!-- Header & Navigazione -->
