@@ -94,7 +94,7 @@
             color: #fff;
         }
 
-        /* Hero Section aggiornata con la nuova immagine di sfondo */
+        /* Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://i.ibb.co/6JN9sdKF/Screenshot-2026-10-14-235205.png') no-repeat center center/cover;
@@ -252,17 +252,43 @@
             font-size: 1.05rem;
             color: var(--secondary-color);
             margin-bottom: 0.2rem;
-        }
-
-        .menu-item-desc {
-            font-size: 0.85rem;
-            color: #666;
+            text-transform: capitalize;
         }
 
         .menu-item-price {
             font-weight: 700;
             color: var(--primary-color);
             font-size: 1.05rem;
+            white-space: nowrap;
+        }
+
+        .wine-header {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.75rem;
+            color: #888;
+            font-weight: 600;
+            gap: 1.2rem;
+            margin-bottom: 0.5rem;
+            padding-right: 0.2rem;
+            text-transform: uppercase;
+        }
+
+        .wine-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            border-bottom: 1px dotted #e0d6c3;
+            padding-bottom: 0.5rem;
+        }
+
+        .wine-prices {
+            display: flex;
+            gap: 1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.95rem;
             white-space: nowrap;
         }
 
@@ -425,7 +451,7 @@
         </nav>
     </header>
 
-    <!-- Schermata Home (Hero) con nuova immagine di sfondo -->
+    <!-- Schermata Home (Hero) -->
     <section id="home" class="hero">
         <h1>Osteria Broccaindosso</h1>
         <p>L'autentica tradizione emiliana nel cuore di Bologna, dove il calore dell'accoglienza incontra i sapori di una volta.</p>
@@ -450,15 +476,15 @@
         </div>
     </section>
 
-    <!-- Sezione Menù (con prezzi reali basati sull'immagine) -->
+    <!-- Sezione Menù -->
     <section id="menu" class="menu-section">
         <div class="section-title">
             <h2>Il Nostro Menù</h2>
-            <p>I piatti tipici della tradizione emiliana tratti dal nostro foglio menù</p>
+            <p>I piatti tipici della tradizione e la nostra selezione di bevande e vini</p>
         </div>
         
         <div class="menu-note">
-            <i class="fas fa-info-circle"></i> <strong>Informazioni:</strong> Coperto € 2,00. <em>* Alcuni prodotti all'occorrenza potrebbero essere congelati. Per eventuali intolleranze o allergie rivolgersi al personale di sala.</em>
+            <i class="fas fa-info-circle"></i> <strong>Informazioni:</strong> Coperto € 2. * Alcuni prodotti all'occorrenza potrebbero essere congelati. Per eventuali intolleranze o allergie rivolgersi al personale di sala.
         </div>
 
         <div class="menu-grid">
@@ -466,34 +492,20 @@
             <div class="menu-category">
                 <h3><i class="fas fa-utensils"></i> Antipasti</h3>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Salumi Tipici Regionali</div>
-                    </div>
+                    <div class="menu-item-info"><div class="menu-item-title">Salumi tipici regionali</div></div>
                     <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Torta Salata con Taleggio e Pere</div>
-                    </div>
-                    <div class="menu-item-price">€ 12</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Torta salata con taleggio e pere</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Sformato di Zucca Burro e Salvia</div>
-                    </div>
-                    <div class="menu-item-price">€ 12</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Parmigiana di melanzane</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Parmigiana di Melanzane</div>
-                    </div>
-                    <div class="menu-item-price">€ 12</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Salsiccia con Fagioli</div>
-                    </div>
-                    <div class="menu-item-price">€ 12</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Sformato alle verdure di stagione</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
             </div>
 
@@ -501,58 +513,40 @@
             <div class="menu-category">
                 <h3><i class="fas fa-bowl-food"></i> Primi di Pasta Fresca</h3>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Tortellini in Brodo</div>
-                    </div>
-                    <div class="menu-item-price">€ 13</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Tortellini in brodo</div></div>
+                    <div class="menu-item-price">€ 16</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Passatello Asciutto con Zucchine e Menta</div>
-                    </div>
-                    <div class="menu-item-price">€ 13</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Passatelli con zucchine e menta</div></div>
+                    <div class="menu-item-price">€ 14</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Gramigna al Torchio con Ragù di Salsiccia</div>
-                    </div>
-                    <div class="menu-item-price">€ 11</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Gramigna alla salsiccia</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Tagliatelle al Ragù</div>
-                    </div>
-                    <div class="menu-item-price">€ 11</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Tagliatelle al ragù</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Spaghetto alla Chitarra con Pecorino Romano e Guanciale</div>
-                    </div>
-                    <div class="menu-item-price">€ 11</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Spaghetto alla chitarra con pecorino e guanciale</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Tortelloni di Ricotta con Burro e Salvia</div>
-                    </div>
-                    <div class="menu-item-price">€ 13</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Tortelloni di ricotta con burro e salvia</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Maccheroncino Verde di Pasta Fresca con Ragù di Prosciutto</div>
-                    </div>
-                    <div class="menu-item-price">€ 11</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Maccheroncino verde di pasta fresca con ragù di prosciutto</div></div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item" style="background: #fdf8ec; padding: 0.5rem; border-radius: 6px; border: 1px dashed var(--accent-color);">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title" style="color: var(--primary-color);">2 Assaggi di Primo (Min. 2 persone)</div>
-                    </div>
-                    <div class="menu-item-price">€ 15 a persona</div>
+                    <div class="menu-item-info"><div class="menu-item-title" style="color: var(--primary-color);">2 Assaggi di pasta (Min. 2 persone)</div></div>
+                    <div class="menu-item-price">€ 16 a persona</div>
                 </div>
                 <div class="menu-item" style="background: #fdf8ec; padding: 0.5rem; border-radius: 6px; border: 1px dashed var(--accent-color); margin-top: 5px;">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title" style="color: var(--primary-color);">3 Assaggi di Primo (Min. 2 persone)</div>
-                    </div>
-                    <div class="menu-item-price">€ 18 a persona</div>
+                    <div class="menu-item-info"><div class="menu-item-title" style="color: var(--primary-color);">3 Assaggi di pasta (Min. 3 persone)</div></div>
+                    <div class="menu-item-price">€ 20 a persona</div>
                 </div>
             </div>
 
@@ -560,34 +554,24 @@
             <div class="menu-category">
                 <h3><i class="fas fa-drumstick-bite"></i> Secondi Piatti</h3>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Cotoletta alla Bolognese</div>
-                    </div>
+                    <div class="menu-item-info"><div class="menu-item-title">Cotoletta alla bolognese</div></div>
+                    <div class="menu-item-price">€ 18</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-title">Verdure alla griglia con formaggio</div></div>
                     <div class="menu-item-price">€ 16</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Verdure alla Griglia con Formaggio</div>
-                    </div>
-                    <div class="menu-item-price">€ 16</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Tagliata di manzo</div></div>
+                    <div class="menu-item-price">€ 8 all'etto</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Tagliata di Manzo</div>
-                    </div>
-                    <div class="menu-item-price">all'etto / € 7</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Filetto di manzo</div></div>
+                    <div class="menu-item-price">€ 11 all'etto</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Filetto di Manzo</div>
-                    </div>
-                    <div class="menu-item-price">all'etto / € 10</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Carpaccio di Carne Salada con Scaglie di Parmigiano</div>
-                    </div>
-                    <div class="menu-item-price">€ 16</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Carpaccio di carne salada con scaglie di parmigiano</div></div>
+                    <div class="menu-item-price">€ 18</div>
                 </div>
             </div>
 
@@ -595,70 +579,70 @@
             <div class="menu-category">
                 <h3><i class="fas fa-carrot"></i> Contorni</h3>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Patate al Forno</div>
-                    </div>
-                    <div class="menu-item-price">€ 5</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Patate al forno</div></div>
+                    <div class="menu-item-price">€ 6</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Verdure alla Griglia</div>
-                    </div>
-                    <div class="menu-item-price">€ 5</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Verdure alla griglia</div></div>
+                    <div class="menu-item-price">€ 6</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Insalata Mista</div>
-                    </div>
-                    <div class="menu-item-price">€ 5</div>
+                    <div class="menu-item-info"><div class="menu-item-title">Insalata mista</div></div>
+                    <div class="menu-item-price">€ 6</div>
                 </div>
             </div>
 
             <!-- Categoria Dolci -->
             <div class="menu-category">
                 <h3><i class="fas fa-ice-cream"></i> I Nostri Dolci</h3>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Crème Caramel</div>
-                    </div>
-                    <div class="menu-item-price">€ 6</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Mascarpone</div>
-                    </div>
-                    <div class="menu-item-price">€ 6</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Tenerina al Cioccolato</div>
-                    </div>
-                    <div class="menu-item-price">€ 6</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Zuppa Inglese</div>
-                    </div>
-                    <div class="menu-item-price">€ 6</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Torta di Riso</div>
-                    </div>
-                    <div class="menu-item-price">€ 6</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Frutta di Stagione</div>
-                    </div>
-                    <div class="menu-item-price">€ 6</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-info">
-                        <div class="menu-item-title">Tiramisù</div>
-                    </div>
-                    <div class="menu-item-price">€ 6</div>
-                </div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Crème caramel</div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Mascarpone</div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tenerina al cioccolato con mascarpone</div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Zuppa inglese</div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Torta di riso</div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Frutta di stagione</div></div><div class="menu-item-price">€ 6</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tiramisù</div></div><div class="menu-item-price">€ 7</div></div>
+            </div>
+
+            <!-- Categoria Bevande -->
+            <div class="menu-category">
+                <h3><i class="fas fa-glass-water"></i> Bevande</h3>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Acqua 1lt</div></div><div class="menu-item-price">€ 2</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Coca Cola 55cl</div></div><div class="menu-item-price">€ 4</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Caffè</div></div><div class="menu-item-price">€ 2</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Birra artigianale 50cl</div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa bianca</div></div><div class="menu-item-price">€ 5</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa barricata</div></div><div class="menu-item-price">€ 5</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Brandy Villa Zarri</div></div><div class="menu-item-price">€ 8</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Amari</div></div><div class="menu-item-price">€ 5</div></div>
+            </div>
+
+            <!-- Categoria Vini Rossi -->
+            <div class="menu-category" style="grid-column: span 1;">
+                <h3><i class="fas fa-wine-glass-alt"></i> Vini Rossi</h3>
+                <div class="wine-header"><span>0.75L</span><span>0.50L</span><span>Calice</span></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Cabernet Sauvignon (De Franceschi)</div></div><div class="wine-prices"><span>€ 15</span><span>€ 8</span><span>€ 4</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Merlot (Cantina Isola)</div></div><div class="wine-prices"><span>€ 18</span><span>€ 13</span><span>€ 6</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Sangiovese Superiore (Cantina Nespoli)</div></div><div class="wine-prices"><span>€ 19</span><span>€ 13</span><span>€ 6</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Lambrusco (Cantina Garuti)</div></div><div class="wine-prices"><span>€ 16</span><span>€ 12</span><span>€ 5</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Valpolicella Ripasso (Veronesi Beatrice)</div></div><div class="wine-prices"><span>€ 50</span><span>€ 20</span><span>€ 8</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Sangiovese Santodeno Appassimento</div></div><div class="wine-prices"><span>€ 24</span><span>€ 16</span><span>€ 7</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Montepulciano (Cantina Granducato)</div></div><div class="wine-prices"><span>€ 30</span><span>€ 20</span><span>€ 7</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Rosso Riserva Bologna (Cantina Bonfiglio)</div></div><div class="wine-prices"><span>€ 35</span><span>€ 24</span><span>€ 9</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Controluce (Cantina Manaresi)</div></div><div class="wine-prices"><span>€ 32</span><span>€ 22</span><span>€ 8</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Barbera (Cantina Manaresi)</div></div><div class="wine-prices"><span>€ 28</span><span>€ 20</span><span>€ 7</span></div></div>
+            </div>
+
+            <!-- Categoria Vini Bianchi e Passiti -->
+            <div class="menu-category">
+                <h3><i class="fas fa-wine-bottle"></i> Vini Bianchi & Dolci</h3>
+                <div class="wine-header"><span>0.75L</span><span>0.50L</span><span>Calice</span></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Bianco fermo della casa (Isola)</div></div><div class="wine-prices"><span>€ 13</span><span>€ 8</span><span>€ 4</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Bianco frizzante della casa (Isola)</div></div><div class="wine-prices"><span>€ 13</span><span>€ 8</span><span>€ 4</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Prosecco Valdobbiadene Sup. (Bellussi)</div></div><div class="wine-prices"><span>€ 24</span><span>€ 16</span><span>€ 7</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Bianco Bologna (Cantina Manaresi)</div></div><div class="wine-prices"><span>€ 22</span><span>€ 15</span><span>€ 6</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Friulano (Raccaro o Toros) <small style="display:block; color:#777;">(Solo bottiglia 0.75)</small></div></div><div class="wine-prices"><span>€ 50</span><span>/</span><span>/</span></div></div>
+                <div class="wine-item"><div class="menu-item-info"><div class="menu-item-title">Albana Passito (Emilia Romagna) <small style="display:block; color:#777;">(Solo 0.50 e calice)</small></div></div><div class="wine-prices"><span>/</span><span>€ 30</span><span>€ 8</span></div></div>
             </div>
         </div>
     </section>
