@@ -104,7 +104,7 @@
             font-weight: 700;
         }
 
-        /* Header & Navigation */
+        /* Header & Navigation (Con transizione fluida per la trasparenza dinamica) */
         header {
             position: fixed;
             top: 41px; /* Sotto la top-booking-bar */
@@ -119,6 +119,14 @@
             padding: 1rem 5%;
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
+        }
+
+        /* Classe aggiunta dinamicamente via JS quando si scorre in basso */
+        header.scrolled {
+            background: rgba(44, 34, 30, 0.75);
+            backdrop-filter: blur(6px);
+            padding: 0.8rem 5%;
         }
 
         .logo {
@@ -162,10 +170,12 @@
             color: #fff;
         }
 
-        /* Hero Section con immagine ad alta risoluzione pulita */
+        /* Hero Section con effetto Parallax fluido (background-attachment: fixed) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/e0/a6/8a/caption.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/e0/a6/8a/caption.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Effetto scorrimento smooth/parallax */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -545,7 +555,7 @@
     </div>
 
     <!-- Header & Navigazione -->
-    <header>
+    <header id="main-header">
         <a href="#" class="logo">Osteria<span>Broccaindosso</span></a>
         <div class="menu-toggle" id="mobile-menu">
             <i class="fas fa-bars"></i>
@@ -904,8 +914,19 @@
         <p>&copy; 2026 Osteria Broccaindosso - Bologna. Tutti i diritti riservati.</p>
     </footer>
 
-    <!-- Script JavaScript per Menu Mobile -->
+    <!-- Script JavaScript per Menu Mobile e Trasparenza Header -->
     <script>
+        // Effetto trasparenza header allo scroll
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Gestione Menu Mobile
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
 
