@@ -94,10 +94,10 @@
             color: #fff;
         }
 
-        /* Hero Section */
+        /* Hero Section aggiornata con la nuova immagine di sfondo */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://i.ibb.co/6JN9sdKF/Screenshot-2026-10-14-235205.png') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -112,6 +112,7 @@
             margin-bottom: 1rem;
             font-weight: 700;
             letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero p {
@@ -120,6 +121,7 @@
             margin-bottom: 2rem;
             font-weight: 300;
             color: #f0f0f0;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -203,7 +205,7 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -232,21 +234,36 @@
         }
 
         .menu-item {
-            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dotted #e0d6c3;
+            padding-bottom: 0.6rem;
+        }
+
+        .menu-item-info {
+            flex-grow: 1;
+            padding-right: 1rem;
         }
 
         .menu-item-title {
-            display: flex;
-            justify-content: space-between;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--secondary-color);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .menu-item-desc {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
+        }
+
+        .menu-item-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            white-space: nowrap;
         }
 
         /* Galleria Foto */
@@ -401,18 +418,18 @@
             <ul id="nav-list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#locale">Il Locale</a></li>
-                <li><a href="#menu">Menu</a></li>
+                <li><a href="#menu">Menù</a></li>
                 <li><a href="#foto">Foto</a></li>
                 <li><a href="#contatti">Posizione e Contatti</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Schermata Home (Hero) -->
+    <!-- Schermata Home (Hero) con nuova immagine di sfondo -->
     <section id="home" class="hero">
         <h1>Osteria Broccaindosso</h1>
         <p>L'autentica tradizione emiliana nel cuore di Bologna, dove il calore dell'accoglienza incontra i sapori di una volta.</p>
-        <a href="#menu" class="btn">Scopri il Menu</a>
+        <a href="#menu" class="btn">Scopri il Menù</a>
     </section>
 
     <!-- Sezione Il Locale -->
@@ -433,84 +450,214 @@
         </div>
     </section>
 
-    <!-- Sezione Menu -->
+    <!-- Sezione Menù (con prezzi reali basati sull'immagine) -->
     <section id="menu" class="menu-section">
         <div class="section-title">
-            <h2>Il Nostro Menu</h2>
-            <p>I grandi classici della cucina bolognese amati dai nostri ospiti</p>
+            <h2>Il Nostro Menù</h2>
+            <p>I piatti tipici della tradizione emiliana tratti dal nostro foglio menù</p>
         </div>
         
         <div class="menu-note">
-            <i class="fas fa-info-circle"></i> <strong>Nota bene:</strong> Poiché la proposta varia quotidianamente in base ai prodotti di stagione e alla spesa del giorno, i piatti possono alternarsi. Preparatevi però a trovare sempre i capisaldi della tradizione!
+            <i class="fas fa-info-circle"></i> <strong>Informazioni:</strong> Coperto € 2,00. <em>* Alcuni prodotti all'occorrenza potrebbero essere congelati. Per eventuali intolleranze o allergie rivolgersi al personale di sala.</em>
         </div>
 
         <div class="menu-grid">
             <!-- Categoria Antipasti -->
             <div class="menu-category">
-                <h3><i class="fas fa-utensils"></i> Antipasti Misti</h3>
+                <h3><i class="fas fa-utensils"></i> Antipasti</h3>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Antipasti Misti Broccaindosso</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Salumi Tipici Regionali</div>
                     </div>
-                    <div class="menu-item-desc">Una ricca carrellata di piccoli assaggi e portate caserecce ideali per iniziare il pasto in compagnia.</div>
+                    <div class="menu-item-price">€ 15</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Tagliere di Salumi Locali</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Torta Salata con Taleggio e Pere</div>
                     </div>
-                    <div class="menu-item-desc">Selezione curata di salumi tipici del territorio emiliano accompagnati da sfiziosità.</div>
-                </div>
-            </div>
-
-            <!-- Categoria Primi Piatti -->
-            <div class="menu-category">
-                <h3><i class="fas fa-bowl-food"></i> Primi Piatti</h3>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Tortellini in Brodo di Cappone</span>
-                    </div>
-                    <div class="menu-item-desc">Pasta fresca all'uovo ripiena, servita nel tradizionale e saporito brodo bollente.</div>
+                    <div class="menu-item-price">€ 12</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Tagliatelle al Ragù Bolognese</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Sformato di Zucca Burro e Salvia</div>
                     </div>
-                    <div class="menu-item-desc">Il piatto simbolo di Bologna, con sfoglia ruvida tirata a mattarello e corposo ragù tradizionale.</div>
+                    <div class="menu-item-price">€ 12</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Tortelloni di Ricotta con Burro e Salvia</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Parmigiana di Melanzane</div>
                     </div>
-                    <div class="menu-item-desc">Delicati tortelloni ripieni di ricotta fresca conditi con burro d'alpeggio e salvia fragrante.</div>
+                    <div class="menu-item-price">€ 12</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Lasagne alla Bolognese</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Salsiccia con Fagioli</div>
                     </div>
-                    <div class="menu-item-desc">Strati di pasta verde all'uovo, besciamella, ragù e Parmigiano Reggiano gratinati a puntino.</div>
+                    <div class="menu-item-price">€ 12</div>
                 </div>
             </div>
 
-            <!-- Categoria Dolci e Vino -->
+            <!-- Categoria Primi di Pasta Fresca -->
             <div class="menu-category">
-                <h3><i class="fas fa-wine-glass-alt"></i> Dolci e Vino</h3>
+                <h3><i class="fas fa-bowl-food"></i> Primi di Pasta Fresca</h3>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Carrellata di Dolci Fatti in Casa</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Tortellini in Brodo</div>
                     </div>
-                    <div class="menu-item-desc">Una ricca sfilata di dessert caserecci artigianali serviti direttamente al tavolo per concludere in dolcezza.</div>
+                    <div class="menu-item-price">€ 13</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Tiramisù Tradizionale</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Passatello Asciutto con Zucchine e Menta</div>
                     </div>
-                    <div class="menu-item-desc">Crema al mascarpone vellutata, savoiardi inzuppati nel caffè e cacao amaro.</div>
+                    <div class="menu-item-price">€ 13</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-item-title">
-                        <span>Vino della Casa (Cabernet / Pignoletto)</span>
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Gramigna al Torchio con Ragù di Salsiccia</div>
                     </div>
-                    <div class="menu-item-desc">Ottimo vino sfuso selezionato per accompagnare al meglio i sapori robusti della cucina.</div>
+                    <div class="menu-item-price">€ 11</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Tagliatelle al Ragù</div>
+                    </div>
+                    <div class="menu-item-price">€ 11</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Spaghetto alla Chitarra con Pecorino Romano e Guanciale</div>
+                    </div>
+                    <div class="menu-item-price">€ 11</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Tortelloni di Ricotta con Burro e Salvia</div>
+                    </div>
+                    <div class="menu-item-price">€ 13</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Maccheroncino Verde di Pasta Fresca con Ragù di Prosciutto</div>
+                    </div>
+                    <div class="menu-item-price">€ 11</div>
+                </div>
+                <div class="menu-item" style="background: #fdf8ec; padding: 0.5rem; border-radius: 6px; border: 1px dashed var(--accent-color);">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title" style="color: var(--primary-color);">2 Assaggi di Primo (Min. 2 persone)</div>
+                    </div>
+                    <div class="menu-item-price">€ 15 a persona</div>
+                </div>
+                <div class="menu-item" style="background: #fdf8ec; padding: 0.5rem; border-radius: 6px; border: 1px dashed var(--accent-color); margin-top: 5px;">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title" style="color: var(--primary-color);">3 Assaggi di Primo (Min. 2 persone)</div>
+                    </div>
+                    <div class="menu-item-price">€ 18 a persona</div>
+                </div>
+            </div>
+
+            <!-- Categoria Secondi Piatti -->
+            <div class="menu-category">
+                <h3><i class="fas fa-drumstick-bite"></i> Secondi Piatti</h3>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Cotoletta alla Bolognese</div>
+                    </div>
+                    <div class="menu-item-price">€ 16</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Verdure alla Griglia con Formaggio</div>
+                    </div>
+                    <div class="menu-item-price">€ 16</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Tagliata di Manzo</div>
+                    </div>
+                    <div class="menu-item-price">all'etto / € 7</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Filetto di Manzo</div>
+                    </div>
+                    <div class="menu-item-price">all'etto / € 10</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Carpaccio di Carne Salada con Scaglie di Parmigiano</div>
+                    </div>
+                    <div class="menu-item-price">€ 16</div>
+                </div>
+            </div>
+
+            <!-- Categoria Contorni -->
+            <div class="menu-category">
+                <h3><i class="fas fa-carrot"></i> Contorni</h3>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Patate al Forno</div>
+                    </div>
+                    <div class="menu-item-price">€ 5</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Verdure alla Griglia</div>
+                    </div>
+                    <div class="menu-item-price">€ 5</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Insalata Mista</div>
+                    </div>
+                    <div class="menu-item-price">€ 5</div>
+                </div>
+            </div>
+
+            <!-- Categoria Dolci -->
+            <div class="menu-category">
+                <h3><i class="fas fa-ice-cream"></i> I Nostri Dolci</h3>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Crème Caramel</div>
+                    </div>
+                    <div class="menu-item-price">€ 6</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Mascarpone</div>
+                    </div>
+                    <div class="menu-item-price">€ 6</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Tenerina al Cioccolato</div>
+                    </div>
+                    <div class="menu-item-price">€ 6</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Zuppa Inglese</div>
+                    </div>
+                    <div class="menu-item-price">€ 6</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Torta di Riso</div>
+                    </div>
+                    <div class="menu-item-price">€ 6</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Frutta di Stagione</div>
+                    </div>
+                    <div class="menu-item-price">€ 6</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">Tiramisù</div>
+                    </div>
+                    <div class="menu-item-price">€ 6</div>
                 </div>
             </div>
         </div>
