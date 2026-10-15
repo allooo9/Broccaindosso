@@ -210,7 +210,7 @@
             border-color: white;
         }
 
-        /* Sezioni Generali con scroll-margin di default per compensare la navbar fissa */
+        /* Sezioni Generali */
         section {
             padding: 6rem 10% 4rem 10%;
             scroll-margin-top: 90px;
@@ -506,22 +506,24 @@
 
         /* Responsive Design & Modifiche specifiche per Smartphone */
         @media (max-width: 900px) {
-            /* Hero ridotta e immagine tagliata sopra/sotto (meno lunga) */
+            /* Padding ridotto all'estremo per header per allineare l'hamburger al bordo destro */
+            header {
+                padding: 1rem 3%;
+            }
+
             .hero {
                 height: 75vh;
                 min-height: 480px;
                 background-size: cover;
-                background-position: center 30%; /* Taglia leggermente sopra e sotto */
+                background-position: center 30%;
                 background-attachment: scroll;
             }
 
-            /* Offset maggiore per le ancore su mobile per evitare che la navbar copra i titoli */
             section {
                 padding: 4.5rem 5% 3rem 5%;
                 scroll-margin-top: 110px;
             }
 
-            /* Allineamento al centro della sezione Il Locale (testo e titoli) */
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -564,9 +566,10 @@
 
             .menu-toggle {
                 display: block;
+                margin-left: auto; /* Spinge l'icona hamburger perfettamente a destra */
             }
 
-            /* Ottimizzazione Menu Vini Mobile: Prezzi in verticale */
+            /* Ottimizzazione Menu Vini Mobile: Prezzi in rosso, etichette misure in grigio */
             .wine-table, .wine-table tbody, .wine-table tr, .wine-table td {
                 display: block;
                 width: 100%;
@@ -597,13 +600,14 @@
                 font-size: 1.1rem;
                 margin-bottom: 0.3rem;
                 padding-left: 1rem;
-                color: #666;
+                color: var(--primary-color); /* Prezzo in rosso */
+                font-weight: 700;
             }
             
             .wine-price-col::before {
                 content: attr(data-label);
-                font-weight: 600;
-                color: var(--primary-color);
+                font-weight: 400;
+                color: #777; /* Misura in grigio */
                 margin-right: 10px;
             }
         }
