@@ -39,14 +39,16 @@
             font-family: 'Playfair Display', serif;
         }
 
-        .menu-category h3, .wine-full-section h3, .menu-item-title, .section-title h2, .hero h1 {
+        .menu-category h3, .wine-full-section h3, .menu-item-title, .section-title h2 {
             font-family: var(--font-handwritten);
         }
 
         .hero h1 {
+            font-family: var(--font-handwritten);
             font-size: 4.5rem;
             letter-spacing: 2px;
             font-weight: 700;
+            line-height: 1.1; /* Ridotto leggermente per avvicinare le righe */
         }
 
         .section-title h2 {
@@ -266,9 +268,9 @@
             padding: 1rem 1.5rem;
             margin-bottom: 2.5rem;
             border-radius: 4px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #554400;
-            font-family: var(--font-handwritten);
+            font-family: var(--font-normal); /* Modificato in font Roboto come richiesto */
         }
 
         .menu-grid {
@@ -329,10 +331,10 @@
 
         .wine-table th {
             font-size: 1.1rem;
-            color: #888;
+            color: #444; /* Reso leggermente più scuro come richiesto */
             font-weight: 600;
             text-transform: uppercase;
-            font-family: var(--font-handwritten);
+            font-family: var(--font-normal);
             padding-bottom: 0.8rem;
             border-bottom: 2px solid #f0e6d6;
         }
@@ -506,7 +508,6 @@
 
         /* Responsive Design & Modifiche specifiche per Smartphone */
         @media (max-width: 900px) {
-            /* Padding ridotto all'estremo per header per allineare l'hamburger al bordo destro */
             header {
                 padding: 1rem 3%;
             }
@@ -517,6 +518,12 @@
                 background-size: cover;
                 background-position: center 30%;
                 background-attachment: scroll;
+            }
+
+            /* Spazio verticale ridotto tra le parole nella schermata home su mobile */
+            .hero h1 {
+                font-size: 3.0rem;
+                line-height: 1.05; 
             }
 
             section {
@@ -542,10 +549,6 @@
                 gap: 2.5rem;
             }
 
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -566,10 +569,10 @@
 
             .menu-toggle {
                 display: block;
-                margin-left: auto; /* Spinge l'icona hamburger perfettamente a destra */
+                margin-left: auto;
             }
 
-            /* Ottimizzazione Menu Vini Mobile: Prezzi in rosso, etichette misure in grigio */
+            /* Ottimizzazione Menu Vini Mobile: Prezzi in rosso, etichette misure leggermente più scure */
             .wine-table, .wine-table tbody, .wine-table tr, .wine-table td {
                 display: block;
                 width: 100%;
@@ -600,14 +603,14 @@
                 font-size: 1.1rem;
                 margin-bottom: 0.3rem;
                 padding-left: 1rem;
-                color: var(--primary-color); /* Prezzo in rosso */
+                color: var(--primary-color);
                 font-weight: 700;
             }
             
             .wine-price-col::before {
                 content: attr(data-label);
-                font-weight: 400;
-                color: #777; /* Misura in grigio */
+                font-weight: 500;
+                color: #4a4a4a; /* Reso leggermente più scuro come richiesto */
                 margin-right: 10px;
             }
         }
@@ -617,7 +620,7 @@
 
     <!-- Banner Prenotazione Immediata in Cima -->
     <div class="top-booking-bar">
-        <span><i class="fas fa-phone-alt"></i> &nbsp; Per prenotare chiama: <a href="tel:+39051234153">+39 051 234153</a></span>
+        <span><i class="fas fa-phone-alt"></i> &nbsp; per prenotare chiama: <a href="tel:+39051234153">+39 051 234153</a></span>
     </div>
 
     <!-- Header & Navigazione -->
