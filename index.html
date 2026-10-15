@@ -75,7 +75,7 @@
             margin-bottom: 0.1rem;
         }
 
-        /* Banner Telefono Immediato in Cima e Selettore Lingua */
+        /* Banner Telefono Immediato in Cima */
         .top-booking-bar {
             background-color: var(--primary-color);
             color: white;
@@ -90,10 +90,8 @@
             width: 100%;
             z-index: 1001;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding-left: 5%;
-            padding-right: 5%;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
@@ -103,10 +101,11 @@
             font-weight: 700;
         }
 
+        /* Selettore Lingua */
         .language-switcher {
             display: flex;
-            gap: 8px;
-            font-size: 0.85rem;
+            gap: 6px;
+            font-size: 0.8rem;
             font-weight: 600;
         }
 
@@ -114,7 +113,7 @@
             background: transparent;
             border: 1px solid rgba(255,255,255,0.6);
             color: white;
-            padding: 2px 8px;
+            padding: 2px 6px;
             border-radius: 4px;
             cursor: pointer;
             transition: var(--transition);
@@ -125,6 +124,17 @@
             background: white;
             color: var(--primary-color);
             border-color: white;
+        }
+
+        /* Container della lingua visibile solo su PC dentro la barra superiore o gestito via CSS */
+        .desktop-lang {
+            display: flex;
+            margin-left: 15px;
+        }
+
+        .mobile-lang-container {
+            display: none; /* Nascosto su PC, appare solo su mobile vicino all'hamburger */
+            align-items: center;
         }
 
         /* Header & Navigation */
@@ -171,6 +181,7 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         nav a {
@@ -187,9 +198,16 @@
 
         .menu-toggle {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             color: #fff;
+        }
+
+        .mobile-right-controls {
+            display: none; /* visibile solo su mobile */
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
         }
 
         /* Hero Section (Desktop) */
@@ -540,6 +558,48 @@
                 padding: 1rem 3%;
             }
 
+            /* Riduciamo leggermente il logo su mobile per fare spazio al selettore di lingua vicino all'hamburger */
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            /* Mostriamo i controlli a destra (lingua + hamburger) vicini al bordo */
+            .mobile-right-controls {
+                display: flex;
+            }
+
+            /* Nascondiamo il menu standard desktop dentro la nav */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-color);
+                padding: 1.5rem 0;
+                text-align: center;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Nascondiamo la lingua nel menu desktop e attiviamo quella mobile vicino all'hamburger */
+            .desktop-lang {
+                display: none;
+            }
+
+            .mobile-lang-container {
+                display: flex;
+            }
+
             .hero {
                 height: 75vh;
                 min-height: 480px;
@@ -574,29 +634,6 @@
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--secondary-color);
-                padding: 1.5rem 0;
-                text-align: center;
-                gap: 1.5rem;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                margin-left: auto;
             }
 
             .wine-table, .wine-table tbody, .wine-table tr, .wine-table td {
@@ -644,7 +681,7 @@
 </head>
 <body>
 
-    <!-- Banner Prenotazione Immediata in Cima e Selettore Lingua -->
+    <!-- Banner Prenotazione Immediata in Cima (Solo telefono) -->
     <div class="top-booking-bar">
         <span>
             <i class="fas fa-phone-alt"></i> &nbsp; 
@@ -652,18 +689,23 @@
             <span class="lang-en">To book call:</span> 
             <a href="tel:+39051234153">+39 051 234153</a>
         </span>
-        <div class="language-switcher">
-            <button id="btn-it" class="active" onclick="setLanguage('it')">IT</button>
-            <button id="btn-en" onclick="setLanguage('en')">EN</button>
-        </div>
     </div>
 
     <!-- Header & Navigazione -->
     <header id="main-header">
         <a href="#" class="logo">Osteria<span>Broccaindosso</span></a>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
+        
+        <!-- Controlli a destra per Smartphone (Lingua + Hamburger) -->
+        <div class="mobile-right-controls">
+            <div class="language-switcher mobile-lang-container">
+                <button class="btn-it-switcher active" onclick="setLanguage('it')">IT</button>
+                <button class="btn-en-switcher" onclick="setLanguage('en')">EN</button>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
+
         <nav>
             <ul id="nav-list">
                 <li><a href="#home"><span class="lang-it">Home</span><span class="lang-en">Home</span></a></li>
@@ -672,6 +714,13 @@
                 <li><a href="#foto"><span class="lang-it">Foto</span><span class="lang-en">Photos</span></a></li>
                 <li><a href="#recensioni"><span class="lang-it">Recensioni</span><span class="lang-en">Reviews</span></a></li>
                 <li><a href="#contatti"><span class="lang-it">Posizione e Contatti</span><span class="lang-en">Location & Contacts</span></a></li>
+                <!-- Selettore lingua visibile solo su PC dentro il menu -->
+                <li class="desktop-lang">
+                    <div class="language-switcher">
+                        <button class="btn-it-switcher active" onclick="setLanguage('it')">IT</button>
+                        <button class="btn-en-switcher" onclick="setLanguage('en')">EN</button>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -1125,19 +1174,19 @@
         function setLanguage(lang) {
             const itElements = document.querySelectorAll('.lang-it');
             const enElements = document.querySelectorAll('.lang-en');
-            const btnIt = document.getElementById('btn-it');
-            const btnEn = document.getElementById('btn-en');
+            const btnItList = document.querySelectorAll('.btn-it-switcher');
+            const btnEnList = document.querySelectorAll('.btn-en-switcher');
 
             if (lang === 'en') {
                 itElements.forEach(el => el.style.display = 'none');
                 enElements.forEach(el => el.style.display = 'inline');
-                btnEn.classList.add('active');
-                btnIt.classList.remove('active');
+                btnEnList.forEach(btn => btn.classList.add('active'));
+                btnItList.forEach(btn => btn.classList.remove('active'));
             } else {
                 enElements.forEach(el => el.style.display = 'none');
                 itElements.forEach(el => el.style.display = 'inline');
-                btnIt.classList.add('active');
-                btnEn.classList.remove('active');
+                btnItList.forEach(btn => btn.classList.add('active'));
+                btnEnList.forEach(btn => btn.classList.remove('active'));
             }
         }
 
