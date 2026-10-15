@@ -48,7 +48,7 @@
             font-size: 4.5rem;
             letter-spacing: 2px;
             font-weight: 700;
-            line-height: 1.1; /* Ridotto leggermente per avvicinare le righe */
+            line-height: 1.1;
         }
 
         .section-title h2 {
@@ -270,7 +270,7 @@
             border-radius: 4px;
             font-size: 1.1rem;
             color: #554400;
-            font-family: var(--font-normal); /* Modificato in font Roboto come richiesto */
+            font-family: var(--font-normal);
         }
 
         .menu-grid {
@@ -329,12 +329,13 @@
             border-collapse: collapse;
         }
 
+        /* Intestazione vini PC: Font originale ripristinato ma reso leggermente più scuro */
         .wine-table th {
             font-size: 1.1rem;
-            color: #444; /* Reso leggermente più scuro come richiesto */
+            color: #555; 
             font-weight: 600;
             text-transform: uppercase;
-            font-family: var(--font-normal);
+            font-family: var(--font-handwritten);
             padding-bottom: 0.8rem;
             border-bottom: 2px solid #f0e6d6;
         }
@@ -520,7 +521,6 @@
                 background-attachment: scroll;
             }
 
-            /* Spazio verticale ridotto tra le parole nella schermata home su mobile */
             .hero h1 {
                 font-size: 3.0rem;
                 line-height: 1.05; 
@@ -572,7 +572,6 @@
                 margin-left: auto;
             }
 
-            /* Ottimizzazione Menu Vini Mobile: Prezzi in rosso, etichette misure leggermente più scure */
             .wine-table, .wine-table tbody, .wine-table tr, .wine-table td {
                 display: block;
                 width: 100%;
@@ -610,7 +609,7 @@
             .wine-price-col::before {
                 content: attr(data-label);
                 font-weight: 500;
-                color: #4a4a4a; /* Reso leggermente più scuro come richiesto */
+                color: #4a4a4a;
                 margin-right: 10px;
             }
         }
@@ -618,9 +617,9 @@
 </head>
 <body>
 
-    <!-- Banner Prenotazione Immediata in Cima -->
+    <!-- Banner Prenotazione Immediata in Cima (P maiuscola) -->
     <div class="top-booking-bar">
-        <span><i class="fas fa-phone-alt"></i> &nbsp; per prenotare chiama: <a href="tel:+39051234153">+39 051 234153</a></span>
+        <span><i class="fas fa-phone-alt"></i> &nbsp; Per prenotare chiama: <a href="tel:+39051234153">+39 051 234153</a></span>
     </div>
 
     <!-- Header & Navigazione -->
