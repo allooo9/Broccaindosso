@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" style="scroll-behavior: smooth;"> <!-- Transizione fluida allo scroll aggiunta qui -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,9 +28,7 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        /* Rimosso html { scroll-behavior: smooth; } qui per spostarlo nell'attributo style del tag html in alto */
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -104,7 +102,7 @@
             font-weight: 700;
         }
 
-        /* Header & Navigation (Con transizione fluida per la trasparenza dinamica) */
+        /* Header & Navigation */
         header {
             position: fixed;
             top: 41px; /* Sotto la top-booking-bar */
@@ -122,7 +120,6 @@
             transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
         }
 
-        /* Classe aggiunta dinamicamente via JS quando si scorre in basso */
         header.scrolled {
             background: rgba(44, 34, 30, 0.75);
             backdrop-filter: blur(6px);
@@ -170,12 +167,12 @@
             color: #fff;
         }
 
-        /* Hero Section con effetto Parallax fluido (background-attachment: fixed) */
+        /* Hero Section: Parallax solo su Desktop, Sfondo Fisso su Mobile */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/e0/a6/8a/caption.jpg') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed; /* Effetto scorrimento smooth/parallax */
+            background-attachment: fixed; /* Effetto Parallex Desktop */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -508,8 +505,13 @@
             margin-bottom: 0;
         }
 
-        /* Responsive Design */
+        /* Responsive Design & Ottimizzazioni Mobile */
         @media (max-width: 900px) {
+            /* Disabilita il Parallax su Mobile per evitare blocchi e zoomate */
+            .hero {
+                background-attachment: scroll;
+            }
+
             .about-grid, .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
@@ -543,6 +545,47 @@
 
             section {
                 padding: 5rem 5% 3rem 5%;
+            }
+
+            /* Ottimizzazione Menu Vini Mobile: Prezzi in verticale */
+            .wine-table, .wine-table tbody, .wine-table tr, .wine-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .wine-table thead {
+                display: none; /* Nasconde l'intestazione della tabella su mobile */
+            }
+
+            .wine-table td {
+                text-align: left;
+                padding-left: 0;
+                padding-right: 0;
+                border-bottom: none;
+            }
+
+            .wine-name {
+                display: block;
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+                border-bottom: 1px dotted #e0d6c3;
+                padding-bottom: 0.5rem;
+            }
+
+            .wine-price-col {
+                display: block;
+                text-align: left;
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+                padding-left: 1rem;
+                color: #666; /* Distingue il prezzo dal nome del vino */
+            }
+            
+            .wine-price-col::before {
+                content: attr(data-label); /* Aggiunge l'etichetta (0.75L, ecc.) prima del prezzo */
+                font-weight: 600;
+                color: var(--primary-color);
+                margin-right: 10px;
             }
         }
     </style>
@@ -678,11 +721,9 @@
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa bianca</div></div><div class="menu-item-price">€ 5</div></div>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa barricata</div></div><div class="menu-item-price">€ 5</div></div>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Brandy Villa Zarri</div></div><div class="menu-item-price">€ 8</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Amari</div></div><div class="menu-item-price">€ 5</div></div>
-            </div>
-        </div>
-
-        <!-- SEZIONE VINI ROSSI (Full-width) -->
+                
+                <div class="menu-item"><div class="menu-item-info"><div class="menu
+<!-- SEZIONE VINI ROSSI (Full-width) -->
         <div class="wine-full-section">
             <h3><i class="fas fa-wine-glass-alt"></i> Vini Rossi</h3>
             <table class="wine-table">
@@ -697,63 +738,63 @@
                 <tbody>
                     <tr>
                         <td class="wine-name">Cabernet Sauvignon (cantina De Franceschi)</td>
-                        <td class="wine-price-col">€ 15</td>
-                        <td class="wine-price-col">€ 8</td>
-                        <td class="wine-price-col">€ 4</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 15</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 8</td>
+                        <td class="wine-price-col" data-label="Calice">€ 4</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Merlot (cantina Isola)</td>
-                        <td class="wine-price-col">€ 18</td>
-                        <td class="wine-price-col">€ 13</td>
-                        <td class="wine-price-col">€ 6</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 18</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 13</td>
+                        <td class="wine-price-col" data-label="Calice">€ 6</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Sangiovese Superiore (cantina Nespoli)</td>
-                        <td class="wine-price-col">€ 19</td>
-                        <td class="wine-price-col">€ 13</td>
-                        <td class="wine-price-col">€ 6</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 19</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 13</td>
+                        <td class="wine-price-col" data-label="Calice">€ 6</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Lambrusco (cantina Garuti)</td>
-                        <td class="wine-price-col">€ 16</td>
-                        <td class="wine-price-col">€ 12</td>
-                        <td class="wine-price-col">€ 5</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 16</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 12</td>
+                        <td class="wine-price-col" data-label="Calice">€ 5</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Valpolicella Ripasso (az. agr. Veronesi Beatrice)</td>
-                        <td class="wine-price-col">€ 50</td>
-                        <td class="wine-price-col">€ 20</td>
-                        <td class="wine-price-col">€ 8</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 50</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 20</td>
+                        <td class="wine-price-col" data-label="Calice">€ 8</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Sangiovese Santodeno Appassimento</td>
-                        <td class="wine-price-col">€ 24</td>
-                        <td class="wine-price-col">€ 16</td>
-                        <td class="wine-price-col">€ 7</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 24</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 16</td>
+                        <td class="wine-price-col" data-label="Calice">€ 7</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Montepulciano (cantina Granducato)</td>
-                        <td class="wine-price-col">€ 30</td>
-                        <td class="wine-price-col">€ 20</td>
-                        <td class="wine-price-col">€ 7</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 30</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 20</td>
+                        <td class="wine-price-col" data-label="Calice">€ 7</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Rosso Riserva Bologna (cantina Bonfiglio)</td>
-                        <td class="wine-price-col">€ 35</td>
-                        <td class="wine-price-col">€ 24</td>
-                        <td class="wine-price-col">€ 9</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 35</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 24</td>
+                        <td class="wine-price-col" data-label="Calice">€ 9</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Controluce (cantina Manaresi)</td>
-                        <td class="wine-price-col">€ 32</td>
-                        <td class="wine-price-col">€ 22</td>
-                        <td class="wine-price-col">€ 8</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 32</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 22</td>
+                        <td class="wine-price-col" data-label="Calice">€ 8</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Barbera (cantina Manaresi)</td>
-                        <td class="wine-price-col">€ 28</td>
-                        <td class="wine-price-col">€ 20</td>
-                        <td class="wine-price-col">€ 7</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 28</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 20</td>
+                        <td class="wine-price-col" data-label="Calice">€ 7</td>
                     </tr>
                 </tbody>
             </table>
@@ -774,33 +815,33 @@
                 <tbody>
                     <tr>
                         <td class="wine-name">Bianco fermo della casa (cantina Isola)</td>
-                        <td class="wine-price-col">€ 13</td>
-                        <td class="wine-price-col">€ 8</td>
-                        <td class="wine-price-col">€ 4</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 13</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 8</td>
+                        <td class="wine-price-col" data-label="Calice">€ 4</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Bianco frizzante della casa (cantina Isola)</td>
-                        <td class="wine-price-col">€ 13</td>
-                        <td class="wine-price-col">€ 8</td>
-                        <td class="wine-price-col">€ 4</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 13</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 8</td>
+                        <td class="wine-price-col" data-label="Calice">€ 4</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Prosecco Valdobbiadene Superiore (cantina Bellussi)</td>
-                        <td class="wine-price-col">€ 24</td>
-                        <td class="wine-price-col">€ 16</td>
-                        <td class="wine-price-col">€ 7</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 24</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 16</td>
+                        <td class="wine-price-col" data-label="Calice">€ 7</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Bianco Bologna (cantina Manaresi)</td>
-                        <td class="wine-price-col">€ 22</td>
-                        <td class="wine-price-col">€ 15</td>
-                        <td class="wine-price-col">€ 6</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 22</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 15</td>
+                        <td class="wine-price-col" data-label="Calice">€ 6</td>
                     </tr>
                     <tr>
                         <td class="wine-name">Friulano (cantina Raccaro o Toros) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo bottiglia 0.75)</small></td>
-                        <td class="wine-price-col">€ 50</td>
-                        <td class="wine-price-col">/</td>
-                        <td class="wine-price-col">/</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 50</td>
+                        <td class="wine-price-col" data-label="0.50L">/</td>
+                        <td class="wine-price-col" data-label="Calice">/</td>
                     </tr>
                 </tbody>
             </table>
@@ -821,14 +862,15 @@
                 <tbody>
                     <tr>
                         <td class="wine-name">Albana Passito (cantina dell'Emilia Romagna) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo 0.50 e calice)</small></td>
-                        <td class="wine-price-col">/</td>
-                        <td class="wine-price-col">€ 30</td>
-                        <td class="wine-price-col">€ 8</td>
+                        <td class="wine-price-col" data-label="0.75L">/</td>
+                        <td class="wine-price-col" data-label="0.50L">€ 30</td>
+                        <td class="wine-price-col" data-label="Calice">€ 8</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
+    <!-- FINE SEZIONE MENU -->
 
     <!-- Sezione Foto -->
     <section id="foto">
@@ -942,7 +984,7 @@
             }
         });
 
-        // Chiudi il menu mobile quando si clicca su un link
+        // Chiudi il menu mobile quando si clicca su un link (UX migliorata)
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
@@ -954,4 +996,3 @@
     </script>
 </body>
 </html>
-```[cite: 2]
