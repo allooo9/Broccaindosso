@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" style="scroll-behavior: smooth;"> <!-- Transizione fluida allo scroll aggiunta qui -->
+<html lang="it" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,8 +27,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        /* Rimosso html { scroll-behavior: smooth; } qui per spostarlo nell'attributo style del tag html in alto */
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -105,7 +103,7 @@
         /* Header & Navigation */
         header {
             position: fixed;
-            top: 41px; /* Sotto la top-booking-bar */
+            top: 41px;
             left: 0;
             width: 100%;
             background: rgba(44, 34, 30, 0.95);
@@ -167,12 +165,12 @@
             color: #fff;
         }
 
-        /* Hero Section: Parallax solo su Desktop, Sfondo Fisso su Mobile */
+        /* Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/e0/a6/8a/caption.jpg') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed; /* Effetto Parallex Desktop */
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -180,7 +178,7 @@
             text-align: center;
             color: white;
             padding: 0 1rem;
-            margin-top: 41px; /* Compensa la barra superiore */
+            margin-top: 41px;
         }
 
         .hero p {
@@ -507,7 +505,6 @@
 
         /* Responsive Design & Ottimizzazioni Mobile */
         @media (max-width: 900px) {
-            /* Disabilita il Parallax su Mobile per evitare blocchi e zoomate */
             .hero {
                 background-attachment: scroll;
             }
@@ -554,7 +551,7 @@
             }
 
             .wine-table thead {
-                display: none; /* Nasconde l'intestazione della tabella su mobile */
+                display: none;
             }
 
             .wine-table td {
@@ -578,11 +575,11 @@
                 font-size: 1.1rem;
                 margin-bottom: 0.3rem;
                 padding-left: 1rem;
-                color: #666; /* Distingue il prezzo dal nome del vino */
+                color: #666;
             }
             
             .wine-price-col::before {
-                content: attr(data-label); /* Aggiunge l'etichetta (0.75L, ecc.) prima del prezzo */
+                content: attr(data-label);
                 font-weight: 600;
                 color: var(--primary-color);
                 margin-right: 10px;
@@ -721,9 +718,11 @@
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa bianca</div></div><div class="menu-item-price">€ 5</div></div>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa barricata</div></div><div class="menu-item-price">€ 5</div></div>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Brandy Villa Zarri</div></div><div class="menu-item-price">€ 8</div></div>
-                
-                <div class="menu-item"><div class="menu-item-info"><div class="menu
-<!-- SEZIONE VINI ROSSI (Full-width) -->
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Amari</div></div><div class="menu-item-price">€ 5</div></div>
+            </div>
+        </div>
+
+        <!-- SEZIONE VINI ROSSI (Full-width) -->
         <div class="wine-full-section">
             <h3><i class="fas fa-wine-glass-alt"></i> Vini Rossi</h3>
             <table class="wine-table">
@@ -870,7 +869,6 @@
             </table>
         </div>
     </section>
-    <!-- FINE SEZIONE MENU -->
 
     <!-- Sezione Foto -->
     <section id="foto">
@@ -984,7 +982,7 @@
             }
         });
 
-        // Chiudi il menu mobile quando si clicca su un link (UX migliorata)
+        // Chiudi il menu mobile quando si clicca su un link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
