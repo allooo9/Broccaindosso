@@ -75,12 +75,12 @@
             margin-bottom: 0.1rem;
         }
 
-        /* Banner Telefono Immediato in Cima */
+        /* Banner Telefono Immediato in Cima e Selettore Lingua */
         .top-booking-bar {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 1rem;
             font-family: var(--font-normal);
             font-size: 0.95rem;
             font-weight: 500;
@@ -90,9 +90,10 @@
             width: 100%;
             z-index: 1001;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            padding-left: 5%;
+            padding-right: 5%;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
@@ -100,6 +101,30 @@
             color: white;
             text-decoration: underline;
             font-weight: 700;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .language-switcher button {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .language-switcher button.active,
+        .language-switcher button:hover {
+            background: white;
+            color: var(--primary-color);
+            border-color: white;
         }
 
         /* Header & Navigation */
@@ -329,7 +354,6 @@
             border-collapse: collapse;
         }
 
-        /* Intestazione vini PC: Font originale ripristinato ma reso leggermente più scuro */
         .wine-table th {
             font-size: 1.1rem;
             color: #555; 
@@ -507,6 +531,9 @@
             margin-bottom: 0;
         }
 
+        /* Gestione visibilità delle lingue */
+        .lang-en { display: none; }
+
         /* Responsive Design & Modifiche specifiche per Smartphone */
         @media (max-width: 900px) {
             header {
@@ -617,9 +644,18 @@
 </head>
 <body>
 
-    <!-- Banner Prenotazione Immediata in Cima (P maiuscola) -->
+    <!-- Banner Prenotazione Immediata in Cima e Selettore Lingua -->
     <div class="top-booking-bar">
-        <span><i class="fas fa-phone-alt"></i> &nbsp; Per prenotare chiama: <a href="tel:+39051234153">+39 051 234153</a></span>
+        <span>
+            <i class="fas fa-phone-alt"></i> &nbsp; 
+            <span class="lang-it">Per prenotare chiama:</span>
+            <span class="lang-en">To book call:</span> 
+            <a href="tel:+39051234153">+39 051 234153</a>
+        </span>
+        <div class="language-switcher">
+            <button id="btn-it" class="active" onclick="setLanguage('it')">IT</button>
+            <button id="btn-en" onclick="setLanguage('en')">EN</button>
+        </div>
     </div>
 
     <!-- Header & Navigazione -->
@@ -630,12 +666,12 @@
         </div>
         <nav>
             <ul id="nav-list">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#locale">Il Locale</a></li>
-                <li><a href="#menu">Menù</a></li>
-                <li><a href="#foto">Foto</a></li>
-                <li><a href="#recensioni">Recensioni</a></li>
-                <li><a href="#contatti">Posizione e Contatti</a></li>
+                <li><a href="#home"><span class="lang-it">Home</span><span class="lang-en">Home</span></a></li>
+                <li><a href="#locale"><span class="lang-it">Il Locale</span><span class="lang-en">The Restaurant</span></a></li>
+                <li><a href="#menu"><span class="lang-it">Menù</span><span class="lang-en">Menu</span></a></li>
+                <li><a href="#foto"><span class="lang-it">Foto</span><span class="lang-en">Photos</span></a></li>
+                <li><a href="#recensioni"><span class="lang-it">Recensioni</span><span class="lang-en">Reviews</span></a></li>
+                <li><a href="#contatti"><span class="lang-it">Posizione e Contatti</span><span class="lang-en">Location & Contacts</span></a></li>
             </ul>
         </nav>
     </header>
@@ -643,21 +679,42 @@
     <!-- Schermata Home (Hero) -->
     <section id="home" class="hero">
         <h1>Osteria Broccaindosso</h1>
-        <p>L'autentica tradizione emiliana nel cuore di Bologna, dove il calore dell'accoglienza incontra i sapori di una volta.</p>
-        <a href="#menu" class="btn">Scopri il Menù</a>
+        <p>
+            <span class="lang-it">L'autentica tradizione emiliana nel cuore di Bologna, dove il calore dell'accoglienza incontra i sapori di una volta.</span>
+            <span class="lang-en">Authentic Emilian tradition in the heart of Bologna, where warm hospitality meets traditional flavors.</span>
+        </p>
+        <a href="#menu" class="btn">
+            <span class="lang-it">Scopri il Menù</span>
+            <span class="lang-en">Discover the Menu</span>
+        </a>
     </section>
 
     <!-- Sezione Il Locale -->
     <section id="locale">
         <div class="section-title">
-            <h2>L'Anima di Bologna</h2>
-            <p>Un'esperienza rustica, verace e senza tempo</p>
+            <h2>
+                <span class="lang-it">L'Anima di Bologna</span>
+                <span class="lang-en">The Soul of Bologna</span>
+            </h2>
+            <p>
+                <span class="lang-it">Un'esperienza rustica, verace e senza tempo</span>
+                <span class="lang-en">A rustic, genuine and timeless experience</span>
+            </p>
         </div>
         <div class="about-grid">
             <div class="about-text">
-                <h3>Un'istituzione della cucina bolognese</h3>
-                <p>Situata nell'omonima via nel centro storico di Bologna, l'Osteria Broccaindosso è un punto di riferimento molto apprezzato per chi cerca la convivialità e i sapori autentici della tradizione emiliana.</p>
-                <p>Caratterizzato da un'atmosfera calda e accogliente, il locale offre un'esperienza gastronomica genuina, basata su ricette classiche e preparazioni caserecce che valorizzano al meglio la cultura culinaria del territorio.</p>
+                <h3>
+                    <span class="lang-it">Un'istituzione della cucina bolognese</span>
+                    <span class="lang-en">An institution of Bolognese cuisine</span>
+                </h3>
+                <p>
+                    <span class="lang-it">Situata nell'omonima via nel centro storico di Bologna, l'Osteria Broccaindosso è un punto di riferimento molto apprezzato per chi cerca la convivialità e i sapori autentici della tradizione emiliana.</span>
+                    <span class="lang-en">Located on the street of the same name in the historic center of Bologna, Osteria Broccaindosso is a highly appreciated landmark for those seeking conviviality and authentic Emilian flavors.</span>
+                </p>
+                <p>
+                    <span class="lang-it">Caratterizzato da un'atmosfera calda e accogliente, il locale offre un'esperienza gastronomica genuina, basata su ricette classiche e preparazioni caserecce che valorizzano al meglio la cultura culinaria del territorio.</span>
+                    <span class="lang-en">Featuring a warm and welcoming atmosphere, the restaurant offers a genuine gastronomic experience based on classic recipes and homemade preparations that best enhance the local culinary culture.</span>
+                </p>
             </div>
             <div class="about-img">
                 <img src="https://i.ibb.co/KxXd45C9/Screenshot-2026-10-14-234214.png" alt="Interno dell'Osteria Broccaindosso">
@@ -668,104 +725,140 @@
     <!-- Sezione Menù -->
     <section id="menu" class="menu-section">
         <div class="section-title">
-            <h2>Il Nostro Menù</h2>
-            <p>I piatti tipici della tradizione e la nostra selezione di bevande e vini</p>
+            <h2>
+                <span class="lang-it">Il Nostro Menù</span>
+                <span class="lang-en">Our Menu</span>
+            </h2>
+            <p>
+                <span class="lang-it">I piatti tipici della tradizione e la nostra selezione di bevande e vini</span>
+                <span class="lang-en">Traditional dishes and our selection of drinks and wines</span>
+            </p>
         </div>
         
         <div class="menu-note">
-            <i class="fas fa-info-circle"></i> <strong>Informazioni:</strong> Coperto € 2. Per eventuali intolleranze o allergie rivolgersi al personale di sala.
+            <i class="fas fa-info-circle"></i> 
+            <span class="lang-it"><strong>Informazioni:</strong> Coperto € 2. Alcuni prodotti all'occorrenza potrebbero essere congelati. Per eventuali intolleranze o allergie rivolgersi al personale di sala.</span>
+            <span class="lang-en"><strong>Information:</strong> Cover charge: € 2. Some products may be frozen if necessary. For any intolerances or allergies, contact the dining room staff.</span>
         </div>
 
         <div class="menu-grid">
             <!-- Categoria Antipasti -->
             <div class="menu-category">
-                <h3><i class="fas fa-utensils"></i> Antipasti</h3>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Salumi tipici regionali</div></div><div class="menu-item-price">€ 15</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Torta salata con taleggio e pere</div></div><div class="menu-item-price">€ 15</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Parmigiana di melanzane</div></div><div class="menu-item-price">€ 15</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Sformato alle verdure di stagione</div></div><div class="menu-item-price">€ 15</div></div>
+                <h3>
+                    <i class="fas fa-utensils"></i> 
+                    <span class="lang-it">Antipasti</span>
+                    <span class="lang-en">Starters</span>
+                </h3>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Salumi tipici regionali</span><span class="lang-en">Typical regional cold cuts</span></div></div><div class="menu-item-price">€ 15</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Torta salata con taleggio e pere</span><span class="lang-en">Quiche with taleggio and pears</span></div></div><div class="menu-item-price">€ 15</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Parmigiana di melanzane</span><span class="lang-en">Eggplant Parmigiana</span></div></div><div class="menu-item-price">€ 15</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Sformato alle verdure di stagione</span><span class="lang-en">Seasonal vegetable flan</span></div></div><div class="menu-item-price">€ 15</div></div>
             </div>
 
             <!-- Categoria Primi di Pasta Fresca -->
             <div class="menu-category">
-                <h3><i class="fas fa-bowl-food"></i> Primi di Pasta Fresca</h3>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tortellini in brodo</div></div><div class="menu-item-price">€ 16</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Passatelli con zucchine e menta</div></div><div class="menu-item-price">€ 14</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Gramigna alla salsiccia</div></div><div class="menu-item-price">€ 15</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tagliatelle al ragù</div></div><div class="menu-item-price">€ 15</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Spaghetto alla chitarra con pecorino e guanciale</div></div><div class="menu-item-price">€ 15</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tortelloni di ricotta con burro e salvia</div></div><div class="menu-item-price">€ 15</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Maccheroncino verde di pasta fresca con ragù di prosciutto</div></div><div class="menu-item-price">€ 15</div></div>
+                <h3>
+                    <i class="fas fa-bowl-food"></i> 
+                    <span class="lang-it">Primi di Pasta Fresca</span>
+                    <span class="lang-en">Fresh pasta dishes</span>
+                </h3>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Tortellini in brodo</span><span class="lang-en">Tortellini in broth</span></div></div><div class="menu-item-price">€ 16</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Passatelli con zucchine e menta</span><span class="lang-en">Passatelli with zucchini and mint</span></div></div><div class="menu-item-price">€ 14</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Gramigna alla salsiccia</span><span class="lang-en">Gramigna al torchio with sausage</span></div></div><div class="menu-item-price">€ 13</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Tagliatelle al ragù</span><span class="lang-en">Tagliatelle with minced meat sauce (Ragù)</span></div></div><div class="menu-item-price">€ 13</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Spaghetto alla chitarra con pecorino e guanciale</span><span class="lang-en">Spaghetto alla chitarra with pecorino romano and pork cheek</span></div></div><div class="menu-item-price">€ 13</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Tortelloni di ricotta con burro e salvia</span><span class="lang-en">Ricotta tortelloni with butter and sage</span></div></div><div class="menu-item-price">€ 15</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Maccheroncino verde di pasta fresca con ragù di prosciutto</span><span class="lang-en">Green maccheroncino fresh pasta with ham ragù</span></div></div><div class="menu-item-price">€ 13</div></div>
                 <div class="menu-item" style="background: #fdf8ec; padding: 0.5rem; border-radius: 6px; border: 1px dashed var(--accent-color);">
-                    <div class="menu-item-info"><div class="menu-item-title" style="color: var(--primary-color);">2 Assaggi di pasta (Min. 2 persone)</div></div>
-                    <div class="menu-item-price">€ 16 a persona</div>
+                    <div class="menu-item-info"><div class="menu-item-title" style="color: var(--primary-color);"><span class="lang-it">2 Assaggi di pasta (Min. 2 persone)</span><span class="lang-en">2 pasta tastings (Min. 2 persons)</span></div></div>
+                    <div class="menu-item-price">€ 16 <span class="lang-it">a persona</span><span class="lang-en">per person</span></div>
                 </div>
                 <div class="menu-item" style="background: #fdf8ec; padding: 0.5rem; border-radius: 6px; border: 1px dashed var(--accent-color); margin-top: 5px;">
-                    <div class="menu-item-info"><div class="menu-item-title" style="color: var(--primary-color);">3 Assaggi di pasta (Min. 3 persone)</div></div>
-                    <div class="menu-item-price">€ 20 a persona</div>
+                    <div class="menu-item-info"><div class="menu-item-title" style="color: var(--primary-color);"><span class="lang-it">2 Assaggi di pasta (Min. 2 persone)</span><span class="lang-en">2 pasta tastings (Min. 2 persons)</span></div></div>
+                    <div class="menu-item-price">€ 20 <span class="lang-it">a persona</span><span class="lang-en">per person</span></div>
                 </div>
             </div>
 
             <!-- Categoria Secondi Piatti -->
             <div class="menu-category">
-                <h3><i class="fas fa-drumstick-bite"></i> Secondi Piatti</h3>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Cotoletta alla bolognese</div></div><div class="menu-item-price">€ 18</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Verdure alla griglia con formaggio</div></div><div class="menu-item-price">€ 16</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tagliata di manzo</div></div><div class="menu-item-price">€ 8 all'etto</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Filetto di manzo</div></div><div class="menu-item-price">€ 11 all'etto</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Carpaccio di carne salada con scaglie di parmigiano</div></div><div class="menu-item-price">€ 18</div></div>
+                <h3>
+                    <i class="fas fa-drumstick-bite"></i> 
+                    <span class="lang-it">Secondi Piatti</span>
+                    <span class="lang-en">Meat or vegetable dishes</span>
+                </h3>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Cotoletta alla bolognese</span><span class="lang-en">Bolognese cutlet</span></div></div><div class="menu-item-price">€ 18</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Verdure alla griglia con formaggio</span><span class="lang-en">Grilled vegetables with cheese</span></div></div><div class="menu-item-price">€ 16</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Tagliata di manzo</span><span class="lang-en">Slice of grilled beef steak</span></div></div><div class="menu-item-price">€ 8 <span class="lang-it">all'etto</span><span class="lang-en">per 100gr</span></div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Filetto di manzo</span><span class="lang-en">Beef tenderlion</span></div></div><div class="menu-item-price">€ 11 <span class="lang-it">all'etto</span><span class="lang-en">per 100gr</span></div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Carpaccio di carne salada con scaglie di parmigiano</span><span class="lang-en">Carpaccio salad (with parmesan flakes)</span></div></div><div class="menu-item-price">€ 18</div></div>
             </div>
 
             <!-- Categoria Contorni -->
             <div class="menu-category">
-                <h3><i class="fas fa-carrot"></i> Contorni</h3>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Patate al forno</div></div><div class="menu-item-price">€ 6</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Verdure alla griglia</div></div><div class="menu-item-price">€ 6</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Insalata mista</div></div><div class="menu-item-price">€ 6</div></div>
+                <h3>
+                    <i class="fas fa-carrot"></i> 
+                    <span class="lang-it">Contorni</span>
+                    <span class="lang-en">Side dishes</span>
+                </h3>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Patate al forno</span><span class="lang-en">Roasted potatoes</span></div></div><div class="menu-item-price">€ 6</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Verdure alla griglia</span><span class="lang-en">Grilled vegetables</span></div></div><div class="menu-item-price">€ 6</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Insalata mista</span><span class="lang-en">Mixed salad</span></div></div><div class="menu-item-price">€ 6</div></div>
             </div>
 
             <!-- Categoria Dolci -->
             <div class="menu-category">
-                <h3><i class="fas fa-ice-cream"></i> I Nostri Dolci</h3>
+                <h3>
+                    <i class="fas fa-ice-cream"></i> 
+                    <span class="lang-it">I Nostri Dolci</span>
+                    <span class="lang-en">Our desserts</span>
+                </h3>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Crème caramel</div></div><div class="menu-item-price">€ 7</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Mascarpone</div></div><div class="menu-item-price">€ 7</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tenerina al cioccolato con mascarpone</div></div><div class="menu-item-price">€ 7</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Zuppa inglese</div></div><div class="menu-item-price">€ 7</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Torta di riso</div></div><div class="menu-item-price">€ 7</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Frutta di stagione</div></div><div class="menu-item-price">€ 6</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Mascarpone</span><span class="lang-en">Mascarpone (cream)</span></div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Tenerina al cioccolato con mascarpone</span><span class="lang-en">Tenerina chocolate cake</span></div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Zuppa inglese</span><span class="lang-en">Zuppa inglese (trifle)</span></div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Torta di riso</span><span class="lang-en">Rice cake</span></div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Frutta di stagione</span><span class="lang-en">Seasonal fruits</span></div></div><div class="menu-item-price">€ 6</div></div>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Tiramisù</div></div><div class="menu-item-price">€ 7</div></div>
             </div>
 
             <!-- Categoria Bevande -->
             <div class="menu-category">
-                <h3><i class="fas fa-glass-water"></i> Bevande</h3>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Acqua 1lt</div></div><div class="menu-item-price">€ 2</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Coca Cola 55cl</div></div><div class="menu-item-price">€ 4</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Caffè</div></div><div class="menu-item-price">€ 2</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Birra artigianale 50cl</div></div><div class="menu-item-price">€ 7</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa bianca</div></div><div class="menu-item-price">€ 5</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Grappa barricata</div></div><div class="menu-item-price">€ 5</div></div>
-                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Brandy Villa Zarri</div></div><div class="menu-item-price">€ 8</div></div>
+                <h3>
+                    <i class="fas fa-glass-water"></i> 
+                    <span class="lang-it">Bevande</span>
+                    <span class="lang-en">Drinks</span>
+                </h3>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Acqua 1lt</span><span class="lang-en">Water</span></div></div><div class="menu-item-price">€ 2</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Coca Cola 33cl</span><span class="lang-en">Coke 33cl</span></div></div><div class="menu-item-price">€ 4</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Caffè</span><span class="lang-en">Espresso</span></div></div><div class="menu-item-price">€ 2</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Birra artigianale 50cl</span><span class="lang-en">Craft beer gradisca 50cl</span></div></div><div class="menu-item-price">€ 7</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Grappa bianca</span><span class="lang-en">White Grappa</span></div></div><div class="menu-item-price">€ 5</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Grappa barricata</span><span class="lang-en">Barricaded Grappa</span></div></div><div class="menu-item-price">€ 5</div></div>
+                <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title"><span class="lang-it">Brandy Villa Zarri</span><span class="lang-en">Brandy Villa Zarri Bologna</span></div></div><div class="menu-item-price">€ 8</div></div>
                 <div class="menu-item"><div class="menu-item-info"><div class="menu-item-title">Amari</div></div><div class="menu-item-price">€ 5</div></div>
             </div>
         </div>
 
         <!-- SEZIONE VINI ROSSI (Full-width) -->
         <div class="wine-full-section">
-            <h3><i class="fas fa-wine-glass-alt"></i> Vini Rossi</h3>
+            <h3>
+                <i class="fas fa-wine-glass-alt"></i> 
+                <span class="lang-it">Vini Rossi</span>
+                <span class="lang-en">Red wines</span>
+            </h3>
             <table class="wine-table">
                 <thead>
                     <tr>
-                        <th>Vino</th>
+                        <th><span class="lang-it">Vino</span><span class="lang-en">Wine</span></th>
                         <th style="text-align:right;">0.75L</th>
                         <th style="text-align:right;">0.50L</th>
-                        <th style="text-align:right;">Calice</th>
+                        <th style="text-align:right;"><span class="lang-it">Calice</span><span class="lang-en">Glass</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="wine-name">Cabernet Sauvignon (cantina De Franceschi)</td>
-                        <td class="wine-price-col" data-label="0.75L">€ 15</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 13</td>
                         <td class="wine-price-col" data-label="0.50L">€ 8</td>
                         <td class="wine-price-col" data-label="Calice">€ 4</td>
                     </tr>
@@ -789,7 +882,7 @@
                     </tr>
                     <tr>
                         <td class="wine-name">Valpolicella Ripasso (az. agr. Veronesi Beatrice)</td>
-                        <td class="wine-price-col" data-label="0.75L">€ 50</td>
+                        <td class="wine-price-col" data-label="0.75L">€ 30</td>
                         <td class="wine-price-col" data-label="0.50L">€ 20</td>
                         <td class="wine-price-col" data-label="Calice">€ 8</td>
                     </tr>
@@ -829,25 +922,35 @@
 
         <!-- SEZIONE VINI BIANCHI (Full-width) -->
         <div class="wine-full-section">
-            <h3><i class="fas fa-wine-bottle"></i> Vini Bianchi</h3>
+            <h3>
+                <i class="fas fa-wine-bottle"></i> 
+                <span class="lang-it">Vini Bianchi</span>
+                <span class="lang-en">White wines</span>
+            </h3>
             <table class="wine-table">
                 <thead>
                     <tr>
-                        <th>Vino</th>
+                        <th><span class="lang-it">Vino</span><span class="lang-en">Wine</span></th>
                         <th style="text-align:right;">0.75L</th>
                         <th style="text-align:right;">0.50L</th>
-                        <th style="text-align:right;">Calice</th>
+                        <th style="text-align:right;"><span class="lang-it">Calice</span><span class="lang-en">Glass</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="wine-name">Bianco fermo della casa (cantina Isola)</td>
+                        <td class="wine-name">
+                            <span class="lang-it">Bianco fermo della casa (cantina Isola)</span>
+                            <span class="lang-en">House still white wine (Isola winery)</span>
+                        </td>
                         <td class="wine-price-col" data-label="0.75L">€ 13</td>
                         <td class="wine-price-col" data-label="0.50L">€ 8</td>
                         <td class="wine-price-col" data-label="Calice">€ 4</td>
                     </tr>
                     <tr>
-                        <td class="wine-name">Bianco frizzante della casa (cantina Isola)</td>
+                        <td class="wine-name">
+                            <span class="lang-it">Bianco frizzante della casa (cantina Isola)</span>
+                            <span class="lang-en">House sparkling white wine (Isola winery)</span>
+                        </td>
                         <td class="wine-price-col" data-label="0.75L">€ 13</td>
                         <td class="wine-price-col" data-label="0.50L">€ 8</td>
                         <td class="wine-price-col" data-label="Calice">€ 4</td>
@@ -865,7 +968,13 @@
                         <td class="wine-price-col" data-label="Calice">€ 6</td>
                     </tr>
                     <tr>
-                        <td class="wine-name">Friulano (cantina Raccaro o Toros) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo bottiglia 0.75)</small></td>
+                        <td class="wine-name">
+                            Friulano (cantina Raccaro o Toros) 
+                            <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">
+                                <span class="lang-it">(Solo bottiglia 0.75)</span>
+                                <span class="lang-en">(Only 0.75 bottle)</span>
+                            </small>
+                        </td>
                         <td class="wine-price-col" data-label="0.75L">€ 50</td>
                         <td class="wine-price-col" data-label="0.50L">/</td>
                         <td class="wine-price-col" data-label="Calice">/</td>
@@ -876,19 +985,29 @@
 
         <!-- SEZIONE VINO PER DOLCI (Full-width) -->
         <div class="wine-full-section">
-            <h3><i class="fas fa-glass-cheers"></i> Vini per Dolci</h3>
+            <h3>
+                <i class="fas fa-glass-cheers"></i> 
+                <span class="lang-it">Vini per Dolci</span>
+                <span class="lang-en">Dessert wine</span>
+            </h3>
             <table class="wine-table">
                 <thead>
                     <tr>
-                        <th>Vino</th>
+                        <th><span class="lang-it">Vino</span><span class="lang-en">Wine</span></th>
                         <th style="text-align:right;">0.75L</th>
                         <th style="text-align:right;">0.50L</th>
-                        <th style="text-align:right;">Calice</th>
+                        <th style="text-align:right;"><span class="lang-it">Calice</span><span class="lang-en">Glass</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="wine-name">Albana Passito (cantina dell'Emilia Romagna) <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">(Solo 0.50 e calice)</small></td>
+                        <td class="wine-name">
+                            Albana Passito (cantina dell'Emilia Romagna) 
+                            <small style="display:block; color:#777; font-size:0.8rem; font-family:'Plus Jakarta Sans',sans-serif;">
+                                <span class="lang-it">(Solo 0.50 e calice)</span>
+                                <span class="lang-en">(Only 0.50 and glass)</span>
+                            </small>
+                        </td>
                         <td class="wine-price-col" data-label="0.75L">/</td>
                         <td class="wine-price-col" data-label="0.50L">€ 30</td>
                         <td class="wine-price-col" data-label="Calice">€ 8</td>
@@ -901,17 +1020,23 @@
     <!-- Sezione Foto -->
     <section id="foto">
         <div class="section-title">
-            <h2>Scatti dal Locale</h2>
-            <p>Guarda le foto dei piatti e dell'atmosfera caricate dai clienti</p>
+            <h2>
+                <span class="lang-it">Scatti dal Locale</span>
+                <span class="lang-en">Photos from the Restaurant</span>
+            </h2>
+            <p>
+                <span class="lang-it">Guarda le foto dei piatti e dell'atmosfera caricate dai clienti</span>
+                <span class="lang-en">Check out photos of dishes and atmosphere uploaded by customers</span>
+            </p>
         </div>
         <div class="photo-links-container">
             <a href="https://www.tripadvisor.it/Restaurant_Review-g187801-d1817553-Reviews-Osteria_Broccaindosso-Bologna_Province_of_Bologna_Emilia_Romagna.html" target="_blank" class="photo-link-card">
                 <img src="https://i.ibb.co/RkLdmTmD/tripadvisor-icon.png" alt="TripAdvisor" class="custom-icon">
-                <span>Foto su TripAdvisor</span>
+                <span><span class="lang-it">Foto su TripAdvisor</span><span class="lang-en">TripAdvisor Photos</span></span>
             </a>
-            <a href="https://www.google.com/search?sca_esv=d11bf3d68244a04c&sxsrf=APpeQnvWl0D8dKLQp3uCq1gEznO5UZiJvw:1792020391395&udm=2&fbs=ABfTbFWgwlc2MNw7uknLQP9cFo05YtUSpNgn2klEDQSYENClcwAmvzByCsiwlphIPIJX4izqaqVrlbkF8jiCn9a8mLsRyMr6G-B6brtdLq3I5hnw2DOFTF_bVSIWpGh-I_xoJaDGfkFrKYGHAGPiJu6j5-WBzx6S-vVJQShhTKO06tbqdJTMAG-d6LA6f0BqJnUcBWnY5fOC&q=osteria+broccaindosso&sa=X&ved=2ahUKEwiHxe-W1LqXAxVfgP0HHUU_NQ0QtKgLegQIFxAB&cshid=1792020400546006&biw=1536&bih=695&dpr=1.25" target="_blank" class="photo-link-card">
+            <a href="https://www.google.com/search?q=osteria+broccaindosso&udm=2" target="_blank" class="photo-link-card">
                 <i class="fas fa-images"></i>
-                <span>Google Immagini</span>
+                <span>Google Images</span>
             </a>
         </div>
     </section>
@@ -919,17 +1044,23 @@
     <!-- Sezione Lasciaci una recensione -->
     <section id="recensioni" class="reviews-section">
         <div class="section-title">
-            <h2>Lasciaci una Recensione</h2>
-            <p>La tua opinione è preziosa per noi e per gli altri ospiti</p>
+            <h2>
+                <span class="lang-it">Lasciaci una Recensione</span>
+                <span class="lang-en">Leave a Review</span>
+            </h2>
+            <p>
+                <span class="lang-it">La tua opinione è preziosa per noi e per gli altri ospiti</span>
+                <span class="lang-en">Your opinion is valuable to us and other guests</span>
+            </p>
         </div>
         <div class="photo-links-container">
             <a href="https://www.tripadvisor.it/UserReviewEdit-g187801-d1817553-Osteria_Broccaindosso-Bologna_Province_of_Bologna_Emilia_Romagna.html" target="_blank" class="photo-link-card">
                 <img src="https://i.ibb.co/RkLdmTmD/tripadvisor-icon.png" alt="TripAdvisor" class="custom-icon">
-                <span>Recensisci su TripAdvisor</span>
+                <span><span class="lang-it">Recensisci su TripAdvisor</span><span class="lang-en">Review on TripAdvisor</span></span>
             </a>
             <a href="https://share.google/2xxoQ1vpAmZ4fqa9P" target="_blank" class="photo-link-card">
                 <i class="fab fa-google"></i>
-                <span>Recensisci su Google</span>
+                <span><span class="lang-it">Recensisci su Google</span><span class="lang-en">Review on Google</span></span>
             </a>
         </div>
     </section>
@@ -937,37 +1068,43 @@
     <!-- Sezione Posizione e Contatti -->
     <section id="contatti" class="contact-section">
         <div class="section-title">
-            <h2>Dove Siamo & Contatti</h2>
-            <p>Vieni a trovarci nel cuore di Bologna</p>
+            <h2>
+                <span class="lang-it">Dove Siamo & Contatti</span>
+                <span class="lang-en">Location & Contacts</span>
+            </h2>
+            <p>
+                <span class="lang-it">Vieni a trovarci nel cuore di Bologna</span>
+                <span class="lang-en">Come visit us in the heart of Bologna</span>
+            </p>
         </div>
         <div class="contact-grid">
             <div class="contact-info">
                 <div class="info-box">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
-                        <h4>Indirizzo</h4>
+                        <h4><span class="lang-it">Indirizzo</span><span class="lang-en">Address</span></h4>
                         <p>Via Broccaindosso, 7/A, 40125 Bologna (BO), Italia</p>
                     </div>
                 </div>
                 <div class="info-box">
                     <i class="fas fa-phone-alt"></i>
                     <div>
-                        <h4>Telefono</h4>
+                        <h4><span class="lang-it">Telefono</span><span class="lang-en">Phone</span></h4>
                         <p>+39 051 234153</p>
                     </div>
                 </div>
                 <div class="info-box">
                     <i class="fas fa-clock"></i>
                     <div>
-                        <h4>Orari di Apertura</h4>
-                        <p>Lunedì – Domenica: 12:30 – 14:30 | 19:30 – 00:00</p>
+                        <h4><span class="lang-it">Orari di Apertura</span><span class="lang-en">Opening Hours</span></h4>
+                        <p><span class="lang-it">Lunedì – Domenica: 12:30 – 14:30 | 19:30 – 00:00</span><span class="lang-en">Monday – Sunday: 12:30 – 14:30 | 19:30 – 00:00</span></p>
                     </div>
                 </div>
                 <div class="info-box">
                     <i class="fas fa-exclamation-circle"></i>
                     <div>
-                        <h4>Consiglio Utile</h4>
-                        <p>La prenotazione telefonica è vivamente consigliata vista l'altissima richiesta e la notorietà del locale.</p>
+                        <h4><span class="lang-it">Consiglio Utile</span><span class="lang-en">Useful Tip</span></h4>
+                        <p><span class="lang-it">La prenotazione telefonica è vivamente consigliata vista l'altissima richiesta e la notorietà del locale.</span><span class="lang-en">Phone reservation is strongly recommended given the very high demand and popularity of the restaurant.</span></p>
                     </div>
                 </div>
             </div>
@@ -979,11 +1116,36 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Osteria Broccaindosso - Bologna. Tutti i diritti riservati.</p>
+        <p>&copy; 2026 Osteria Broccaindosso - Bologna. <span class="lang-it">Tutti i diritti riservati.</span><span class="lang-en">All rights reserved.</span></p>
     </footer>
 
-    <!-- Script JavaScript per Menu Mobile e Trasparenza Header -->
+    <!-- Script JavaScript per Cambio Lingua, Menu Mobile e Header -->
     <script>
+        // Funzione per cambiare lingua
+        function setLanguage(lang) {
+            const itElements = document.querySelectorAll('.lang-it');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnIt = document.getElementById('btn-it');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                itElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'inline');
+                btnEn.classList.add('active');
+                btnIt.classList.remove('active');
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                itElements.forEach(el => el.style.display = 'inline');
+                btnIt.classList.add('active');
+                btnEn.classList.remove('active');
+            }
+        }
+
+        // Imposta di default la visualizzazione italiana all'avvio
+        document.addEventListener("DOMContentLoaded", () => {
+            setLanguage('it');
+        });
+
         // Effetto trasparenza header allo scroll
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
