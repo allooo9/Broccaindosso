@@ -73,6 +73,12 @@
             margin-bottom: 0.1rem;
         }
 
+        /* Offset per le ancore: evita che la barra in alto copra i titoli quando si clicca sul menu */
+        section {
+            padding: 6rem 10% 4rem 10%;
+            scroll-margin-top: 100px;
+        }
+
         /* Banner Telefono Immediato in Cima */
         .top-booking-bar {
             background-color: var(--primary-color);
@@ -165,9 +171,10 @@
             color: #fff;
         }
 
-        /* Hero Section */
+        /* Hero Section ottimizzata in altezza (tagliata leggermente sopra e sotto) */
         .hero {
-            height: 100vh;
+            height: 75vh;
+            min-height: 500px;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/e0/a6/8a/caption.jpg') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
@@ -208,22 +215,6 @@
             background-color: transparent;
             color: white;
             border-color: white;
-        }
-
-        /* Sezioni Generali */
-        section {
-            padding: 6rem 10% 4rem 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title p {
-            color: #666;
-            font-size: 1.3rem;
-            font-family: var(--font-handwritten);
         }
 
         /* Il Locale / About */
@@ -507,11 +498,17 @@
         @media (max-width: 900px) {
             .hero {
                 background-attachment: scroll;
+                height: 65vh;
             }
 
             .about-grid, .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+            }
+
+            /* Allineamento al centro per la sezione Il Locale su mobile */
+            .about-text {
+                text-align: center;
             }
 
             .hero h1 {
