@@ -73,12 +73,6 @@
             margin-bottom: 0.1rem;
         }
 
-        /* Offset per le ancore: evita che la barra in alto copra i titoli quando si clicca sul menu */
-        section {
-            padding: 6rem 10% 4rem 10%;
-            scroll-margin-top: 100px;
-        }
-
         /* Banner Telefono Immediato in Cima */
         .top-booking-bar {
             background-color: var(--primary-color);
@@ -171,10 +165,9 @@
             color: #fff;
         }
 
-        /* Hero Section ottimizzata in altezza (tagliata leggermente sopra e sotto) */
+        /* Hero Section (Desktop) */
         .hero {
-            height: 75vh;
-            min-height: 500px;
+            height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/e0/a6/8a/caption.jpg') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
@@ -215,6 +208,23 @@
             background-color: transparent;
             color: white;
             border-color: white;
+        }
+
+        /* Sezioni Generali con scroll-margin di default per compensare la navbar fissa */
+        section {
+            padding: 6rem 10% 4rem 10%;
+            scroll-margin-top: 90px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.3rem;
+            font-family: var(--font-handwritten);
         }
 
         /* Il Locale / About */
@@ -494,25 +504,44 @@
             margin-bottom: 0;
         }
 
-        /* Responsive Design & Ottimizzazioni Mobile */
+        /* Responsive Design & Modifiche specifiche per Smartphone */
         @media (max-width: 900px) {
+            /* Hero ridotta e immagine tagliata sopra/sotto (meno lunga) */
             .hero {
+                height: 75vh;
+                min-height: 480px;
+                background-size: cover;
+                background-position: center 30%; /* Taglia leggermente sopra e sotto */
                 background-attachment: scroll;
-                height: 65vh;
             }
 
-            .about-grid, .contact-grid {
+            /* Offset maggiore per le ancore su mobile per evitare che la navbar copra i titoli */
+            section {
+                padding: 4.5rem 5% 3rem 5%;
+                scroll-margin-top: 110px;
+            }
+
+            /* Allineamento al centro della sezione Il Locale (testo e titoli) */
+            .about-grid {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
             }
 
-            /* Allineamento al centro per la sezione Il Locale su mobile */
             .about-text {
                 text-align: center;
             }
 
+            .about-text h3, .about-text p {
+                text-align: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 3.2rem;
             }
 
             nav ul {
@@ -535,10 +564,6 @@
 
             .menu-toggle {
                 display: block;
-            }
-
-            section {
-                padding: 5rem 5% 3rem 5%;
             }
 
             /* Ottimizzazione Menu Vini Mobile: Prezzi in verticale */
